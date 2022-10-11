@@ -34,7 +34,7 @@ router.post('/signup',async(req,res) =>{
         {
             res.status(400).render('posts/user/signup',{err: true, message: "Error: Email is not valid", title: "Sign up", not_logged_in: true});
         }
-        if(req.body.parent===undefined && req.body.child==="Child"){
+        if(req.body.identity==="Child"){
             const result=await user.createUser(username,password,req.body.email,false);
             if(result.userInserted){
                 res.redirect('/login');
@@ -44,7 +44,7 @@ router.post('/signup',async(req,res) =>{
                 res.status(500).json({error: "Internal Sever Error"});
             }
         }
-        else if(req.body.parent==="Parent" && req.body.child===undefined)
+        else if(req.body.identity==="Parent")
         {
             const result=await user.createUser(username,password,req.body.email,true,req.body.childName);
             if(result.userInserted){

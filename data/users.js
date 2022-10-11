@@ -32,14 +32,17 @@ let exportedMethods={
             return { userInserted: true };
         }else
         {
-            const theChild=await userCollections.findOne({username: childName.toLowerCase()});
-            if (theChild==null) throw "Error: Child is not found in the database"
-
+            let childrens=[];
+            for(let i=0;i<childName.length;i++){
+                let theChild=await userCollections.findOne({username: childName[i].toLowerCase()});
+                if (theChild===null) throw "Error: Child is not found in the database"
+                childrens.push(theChild);
+            }
             let newUser={
                 username: username,
                 password: hash,
                 email: email,
-                children: [theChild]
+                children: childrens,
             }
             const insertInfo=await userCollections.insertOne(newUser);
             if (!insertInfo.acknowledged || !insertInfo.insertedId){
