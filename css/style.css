@@ -1,0 +1,27 @@
+/*div id*/
+/* #login-form{
+    margin: 30px 0;
+    text-align: center;
+
+}
+login-form{
+    margin: 30px 0;
+    text-align: center;
+    
+    
+
+}
+.user-log-in{
+    margin: 30px 0;
+    text-align: center;
+
+} */
+.wholeA{
+    margin:auto;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+}
