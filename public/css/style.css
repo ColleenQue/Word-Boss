@@ -1,0 +1,55 @@
+body{
+    font-family: "Century Gothic";
+    background-image: url("/public/images/background.png");
+    height:100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Rockwell";
+}
+
+a,a:link{
+    background-color: red;
+    color:#fff;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+}
+
+a:hover{
+    background-color: green;
+    color:#fff;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+}
+
+
+.forms{
+    margin:auto;
+    width: 60%;
+    box-sizing: border-box;
+    border: 3px solid #47b2e4;
+    padding: 30px;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.1);
+}

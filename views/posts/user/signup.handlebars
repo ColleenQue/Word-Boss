@@ -1,7 +1,9 @@
 <div class="center">
     <br>
     <br>
-    <h1>{{title}}</h1>
+<a href="/login">Login</a>
+<div class="forms">
+<h1>{{title}}</h1>
 <form method="POST" action="signup" id="signup-form">
     <label for = "username">Username</label> <br>
     <input name = "username" type="text" id="username" placeholder="username" value = "{{username}}" required>
@@ -30,6 +32,7 @@
     <br><br>
     <button class="submit-button" type = "submit"> Submit </button>
 </form>
+</div>
 
 {{#if err}}
 <p class="error"> {{message}}</p>
