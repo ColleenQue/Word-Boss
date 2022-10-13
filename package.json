@@ -20,8 +20,11 @@
   "dependencies": {
     "bcrypt": "^5.1.0",
     "deep-email-validator": "^0.1.21",
+    "email": "^0.2.6",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
-    "handlebars": "^4.7.7"
+    "handlebars": "^4.7.7",
+    "mongodb": "^4.10.0",
+    "validator": "^13.7.0"
   }
 }

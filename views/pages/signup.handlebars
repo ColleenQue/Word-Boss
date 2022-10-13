@@ -68,12 +68,12 @@
     
                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
     
-                    <form class="mx-1 mx-md-4">
+                    <form method="POST" action="signup" id="signup-form" class="mx-1 mx-md-4">
     
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
-                          <input type="text" id="form3Example1c" class="form-control" placeholder="Username" value="{{username}}"/>
+                          <input type="text" name="username" class="form-control" placeholder="Username" value="{{username}}"/>
                           <!-- <label class="form-label" for="form3Example1c">Your Name</label> -->
                         </div>
                       </div>
@@ -81,7 +81,7 @@
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
-                          <input type="email" id="form3Example3c" class="form-control" placeholder="Email" value="{{email}}"/>
+                          <input type="email" name="email" class="form-control" placeholder="Email" value="{{email}}"/>
                           <!-- <label class="form-label" for="form3Example3c">Your Email</label> -->
                         </div>
                       </div>
@@ -89,24 +89,65 @@
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
-                          <input type="password" id="form3Example4c" class="form-control" placeholder="Password" value="{{password1}}"/>
+                          <input type="password" name="password" class="form-control" placeholder="Password" value="{{password1}}"/>
                           <!-- <label class="form-label" for="form3Example4c">Password</label> -->
                         </div>
                       </div>
-    
+
                       <div class="d-flex flex-row align-items-center mb-4">
                         <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                         <div class="form-outline flex-fill mb-0">
-                          <input type="password" id="form3Example4cd" class="form-control" placeholder="Re-enter Password" value="{{password2}}"/>
+                          <input type="password" name="password2" class="form-control" placeholder="Re-enter Password" value="{{password2}}"/>
                           <!-- <label class="form-label" for="form3Example4cd">Repeat your password</label> -->
                         </div>
                       </div>
+
+                      
+                      <p>Are you parent or child?</p>
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <input type="radio" name="identity" value="Parent"/>
+                          <label>Parent</label>
+                          <!-- <label class="form-label" for="form3Example4cd">Repeat your password</label> -->
+                        </div>
+                      </div>
+
+                      <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                          <input type="radio" name="identity" value="Child"/>
+                          <label>Child</label>
+                          <!-- <label class="form-label" for="form3Example4cd">Repeat your password</label> -->
+                        </div>
+                      </div>
+                    
+                    <p>If you are parent, input the username of your children here:</p>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                        <div class="form-outline flex-fill mb-0">
+                        <input type="text" class="form-control" name="childName" placeholder="childName" value="{{childName}}"/>
+                          <!-- <label class="form-label" for="form3Example4cd">Repeat your password</label> -->
+                        </div>
+                      </div>
+
+                      <div id="namesOfChildren"></div>
+                    
+
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                        <button type="button" class="btn btn-dark btn-lg" id="moreChildren">Add More Children</button>
+                      </div>
     
                       <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        <button type="button" class="btn btn-dark btn-lg">Create Account</button>
+                        <button type="submit" class="btn btn-dark btn-lg">Create Account</button>
                       </div>
     
                     </form>
+
+                    {{#if err}}
+                    <p  class="error"> {{message}}</p>
+                    {{/if}}
     
                   </div>
 
