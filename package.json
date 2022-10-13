@@ -2,7 +2,7 @@
   "name": "cs555-team4-moss",
   "version": "1.0.0",
   "description": "agile systems assignment",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
@@ -19,8 +19,12 @@
   "homepage": "https://github.com/ColleenQue/CS555-TEAM4-MOSS#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "deep-email-validator": "^0.1.21",
+    "email": "^0.2.6",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
-    "handlebars": "^4.7.7"
+    "handlebars": "^4.7.7",
+    "mongodb": "^4.10.0",
+    "validator": "^13.7.0"
   }
 }
