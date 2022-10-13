@@ -1,5 +1,4 @@
-/*div id*/
-/* #login-form{
+#login-form{
     margin: 30px 0;
     text-align: center;
 
@@ -14,8 +13,8 @@ login-form{
 .user-log-in{
     margin: 30px 0;
     text-align: center;
+}
 
-} */
 .wholeA{
     margin:auto;
     width: 60%;
@@ -24,4 +23,8 @@ login-form{
     align-items: center;
     padding: 10px;
 
+}
+
+body{
+    background-color: blue;
 }
