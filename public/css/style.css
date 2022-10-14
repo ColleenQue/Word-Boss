@@ -256,3 +256,24 @@ img {
 .right-note {
     margin-left: 20px;
 }
+/*
+#visibility{
+    position:absolute;
+    left:250px;
+    top:-90px;
+}
+*/
+
+#visibility1, #visibility2{
+    position:absolute;
+    left:90%;
+    margin-top: 1.6%;
+}
+
+
+#positionEye1, #positionEye2{
+    position: relative;
+}
+
+
+

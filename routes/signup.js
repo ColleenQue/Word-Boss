@@ -33,7 +33,7 @@ router.post('',async(req,res) =>{
         }
         else if(req.body.identity==="Parent")
         {
-            const result=await user.createUser(username,password,req.body.email,true,req.body.childName);
+            const result=await user.createUser(username,password1,req.body.email,true,req.body.childName);
             if(result.userInserted){
                 res.redirect('/login');
             }
