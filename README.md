@@ -1,6 +1,6 @@
 # Team4-MOSS 
 
-Hi we are team Moss. Our goal is to create a website to help children learn about a new vocab word everyday. This can help children to easily prepare for the SAT from an early age.
+Hi we are team Moss. Our goal is to create a website to help children learn about a new vocab word everyday. This can help children easily prepare for the SAT from an early age.
 
 Using Javascript and MongoDB. 
 
