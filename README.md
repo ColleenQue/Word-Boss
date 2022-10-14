@@ -5,10 +5,11 @@ Hi we are team Moss. Our goal is to create a website to help children learn abou
 Using Javascript and MongoDB. 
 
 ## Code
-### To run
+### For User To Run
 ``` npm i ``` to install packages
 
 ``` npm start ``` to start on local 3000
+
 
 ### To commit
 ``` git add . ```
