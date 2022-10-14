@@ -10,4 +10,28 @@
         </div></div>";
         $("#namesOfChildren").append(new_input);
     });
+
+    $("#visibility1").click(function(){
+        var x=document.getElementById("password1");
+        if(x.type ==="password"){
+            x.type="text";
+        }
+        else
+        {
+            x.type="password";
+        }
+       console.log(x);
+    });
+
+$("#visibility2").click(function(){
+        var x=document.getElementById("password2");
+        if(x.type ==="password"){
+            x.type="text";
+        }
+        else
+        {
+            x.type="password";
+        }
+});
+
 })(window.jQuery)
