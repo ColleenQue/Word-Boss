@@ -7,7 +7,7 @@ const constructorMethod = (app) => {
   app.use('/signup',signupRoute);
   app.use('/home',homeRoutes);
   app.use('*', (req, res) => {
-    res.redirect('/login');
+    res.redirect('/home');
   });
 };
 

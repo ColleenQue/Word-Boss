@@ -10,15 +10,14 @@ router.get('', async (req, res) => {
 });
 
 router.post('', async (req, res) => {
+    
     let username = req.body.username;
     let password = req.body.password;
     let result;
-  
     try {
       password = validation.checkPassWord(req.body.password);
       username = validation.checkUserName(req.body.username);
       result = await user.checkUser(username, password);
-     
     }
     catch (e) {
       res.status(400).render('pages/login', { err: true, message: e ,title:"Log in"});
