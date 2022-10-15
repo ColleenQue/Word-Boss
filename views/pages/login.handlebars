@@ -1,18 +1,127 @@
-<!-- If the user is not authenticaed, it will render a view with a login form. The form will contain two inputs, one for username and one for password. The form will be used to submit a POST request to the /login route on the server and must have an id of login-form. The input for the username must have a name/id of username; the input for the password must have name/id of password and should be an input type of password.-->
 
 
-<form method = "POST" action = "/login" id = "login-form">
-    <input name = "username" type="text" id="username" placeholder="username" value = "{{username}}" >
-    <label for = "username">username</label> 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>login</title>
 
-    <input name = "password" type = "password" id = "password" placeholder="password" value = "{{password}}"> 
-    <label for = "password"> password</label>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
 
-    <button type = "submit"> Submit </button>
-</form>
+    <!-- Iowan Old Style Font -->
+    <link href="//db.onlinewebfonts.com/c/ee2d6efb70dae6b477d30df1fd294972?family=Bitstream+Iowan+Old+Style" rel="stylesheet" type="text/css"/>
 
-{{#if err}}
-<p class="error"> {{message}}</p>
-{{/if}}
+    <!-- Oleo Script -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
 
-<a href="/signup">Need to register? Click here to sign-up</a>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/cfb838773a.js" crossorigin="anonymous"></script>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="/public/css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    
+<header class="site-header py-2 justify-content-start" style="background-color:white; margin-top:1em;">
+    <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
+        <div class="container">
+            <a href="/" class="navbar-brand d-flex w-50 me-auto">[Website Name]</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsingNavbar3">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+   <article>
+    <main>
+    <div class="container h-100" style="margin-top:3em">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-lg-12 col-xl-11">
+            <div class="card text-black" style="border-radius: 25px;">
+              <div class="card-body p-md-5">
+                <div class="row justify-content-center">
+                  <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+    
+                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Log In</p>
+        <form action="/account/login" method="POST" class="user-log-in">
+        
+        <!-- If the user is not authenticaed, it will render a view with a login form. The form will contain two inputs, one for username and one for password. The form will be used to submit a POST request to the /login route on the server and must have an id of login-form. The input for the username must have a name/id of username; the input for the password must have name/id of password and should be an input type of password.-->
+
+
+
+
+        <form method = "POST" action = "/login" id="login-form" class="myform">
+            <div class="create_account"><p><a href="/signup">Create an account instead</a></p></div>
+            <hr>
+            {{#if dbErr}}
+                <p id="server-error">{{error}}</p>
+            {{/if}}
+            {{#if usernameErr}}
+                <p>{{error}}</p>
+            {{/if}}
+            <p class = "username-err" ></p>
+            <div id="positionEye1">
+                <span id="visibility1"><i class="fas fa-eye fa-lg me-3 fa-fw"></i></span>
+            </div>
+            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+            {{!-- <label for="username" class = "username-label">Username</label> --}}
+            <input id="username" type="text" class = "username-input" placeholder="Enter username (must have at least 2 characters)" value="{{username}}" name="username" required minlength="2">
+            
+            {{#if pswErr}}
+                <p>{{error}}</p>
+            {{/if}}
+            <p class = "psw-err" ></p>
+            <div id="positionEye2">
+                      <span id="visibility2"><i class="fas fa-eye fa-lg me-3 fa-fw"></i></span>
+            </div>
+            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+            {{!-- <label for="psw" class = "psw-label">Password</label> --}}
+            <input id = "psw" type="password" class="psw-input" placeholder="Enter Password (must have at least 8 characters)" value = "{{password}}" name="psw" required minlength="8">
+          
+            {{!-- <div> --}}
+                <br>
+            <div class="login_btn">
+                <button type="submit" class="btn btn-dark btn-lg">Log In</button>
+            </div>
+            
+            {{!-- </div> --}}
+        </div>
+        </form>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+            </div>
+        </div>
+  
+
+
+    </article>
