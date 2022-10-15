@@ -14,10 +14,10 @@ Using Javascript and MongoDB.
 Click on the sign up or log in buttons on the upper right corner. 
 
 #### Sign Up
-1. Provide your valid email
+1. Provide your valid email, username, and password. 
 2. You can choose the visibility of the password by clicking on the 'eye'
-3. If you are a parent, you are required to input you child's username, and you are allowed to add children to your account
-4. If you are a child, you are not required to input anything and can go ahead and create your account.
+3. If you are a parent, you can input you child's username, and you are allowed to add children to your account
+4. If you are a child, you can go ahead and create your account.
 
 #### Log In
 1. Provide your valid username and password
