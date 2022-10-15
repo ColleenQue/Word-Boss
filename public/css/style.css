@@ -78,6 +78,33 @@ div {
 }
 
 
+
+/*
+ * login
+ */
+.create_account{
+    text-align: center;
+}
+.create_account a{
+    color: rgb(255,140,0);
+    text-align: center;
+}
+.create_account a:link{
+    text-decoration: none;
+    color: black;
+}
+.create_account a:hover{
+    text-decoration: none;
+    text-decoration: underline;
+}
+.login_btn{
+    margin-top: 30px;
+    text-align: center;
+}
+
+
+
+
 /*
  * Play
  */
@@ -274,6 +301,7 @@ img {
 #positionEye1, #positionEye2{
     position: relative;
 }
+
 
 
 
