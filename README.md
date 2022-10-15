@@ -6,6 +6,9 @@ Using Javascript and MongoDB.
 
 ## User Manual
 ### To Run
+
+Clone the code into visual studio code.
+
 ``` npm i ``` to install packages
 
 ``` npm start ``` to start on local 3000
