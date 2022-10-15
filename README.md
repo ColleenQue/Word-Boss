@@ -4,17 +4,21 @@ Hi we are team Moss. Our goal is to create a website to help children learn abou
 
 Using Javascript and MongoDB. 
 
-## Code
-### For User To Run
+## User Manual
+### To Run
 ``` npm i ``` to install packages
 
 ``` npm start ``` to start on local 3000
 
+### To Sign up or Log in 
+Click on the sign up or log in buttons on the upper right corner. 
 
-### To commit
-``` git add . ```
+#### Sign Up
+1. Provide your valid email
+2. You can choose the visibility of the password by clicking on the 'eye'
+3. If you are a parent, you are required to input you child's username, and you are allowed to add children to your account
+4. If you are a child, you are not required to input anything and can go ahead and create your account.
 
-```git commit -m "message"```
-
-```git push```
-
+#### Log In
+1. Provide your valid username and password
+2. If you successfully sign in, you will see the home page with no sign up/log in button. They are replaced by 'Profile' 
