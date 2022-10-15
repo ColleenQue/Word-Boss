@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -69,7 +71,13 @@
     
                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Log In</p>
         <form action="/account/login" method="POST" class="user-log-in">
-        <div id="login-form" class="myform">
+        
+        <!-- If the user is not authenticaed, it will render a view with a login form. The form will contain two inputs, one for username and one for password. The form will be used to submit a POST request to the /login route on the server and must have an id of login-form. The input for the username must have a name/id of username; the input for the password must have name/id of password and should be an input type of password.-->
+
+
+
+
+        <form method = "POST" action = "/login" id="login-form" class="myform">
             <div class="create_account"><p><a href="/signup">Create an account instead</a></p></div>
             <hr>
             {{#if dbErr}}

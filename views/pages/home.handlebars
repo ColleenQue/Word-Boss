@@ -63,12 +63,21 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+                    {{#if login}}
+                    <li class="nav-item">
+                        <a class="nav-link">Profile</a>
+                    </li>
+                    {{else}}
                     <li class="nav-item">
                         <a class="nav-link" href="/signup">Sign Up</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Log In</a>
                     </li>
+                    {{/if}}
+
+
                 </ul>
             </div>
         </div>
