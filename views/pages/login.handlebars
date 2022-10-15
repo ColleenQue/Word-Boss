@@ -1,29 +1,18 @@
-   <article>
-        <form action="/account/login" method="POST" class="user-log-in">
-        <div id="login-form" class="myform">
-            <h1>Log In</h1>
-            <p>Please fill in this form to log into your account.</p>
-            <hr>
-            {{#if dbErr}}
-                <p id="server-error">{{error}}</p>
-            {{/if}}
-            {{#if usernameErr}}
-                <p>{{error}}</p>
-            {{/if}}
-            <p class = "username-err" ></p>
-            <label for="username" class = "username-label">Username</label>
-            <input id="username" type="text" class = "username-input" placeholder="Enter username (must have at least 2 characters)" value="{{username}}" name="username" required minlength="2">
-            
-            {{#if pswErr}}
-                <p>{{error}}</p>
-            {{/if}}
-            <p class = "psw-err" ></p>
-            <label for="psw" class = "psw-label">Password</label>
-            <input id = "psw" type="password" class="psw-input" placeholder="Enter Password (must have at least 8 characters)" value = "{{password}}" name="psw" required minlength="8">
-          
-            {{!-- <div> --}}
-            <button type="submit" >Log In</button>
-            {{!-- </div> --}}
-        </div>
-        </form>
-    </article>
+<!-- If the user is not authenticaed, it will render a view with a login form. The form will contain two inputs, one for username and one for password. The form will be used to submit a POST request to the /login route on the server and must have an id of login-form. The input for the username must have a name/id of username; the input for the password must have name/id of password and should be an input type of password.-->
+
+
+<form method = "POST" action = "/login" id = "login-form">
+    <input name = "username" type="text" id="username" placeholder="username" value = "{{username}}" >
+    <label for = "username">username</label> 
+
+    <input name = "password" type = "password" id = "password" placeholder="password" value = "{{password}}"> 
+    <label for = "password"> password</label>
+
+    <button type = "submit"> Submit </button>
+</form>
+
+{{#if err}}
+<p class="error"> {{message}}</p>
+{{/if}}
+
+<a href="/signup">Need to register? Click here to sign-up</a>
