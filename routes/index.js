@@ -1,17 +1,14 @@
-const userRoutes=require('./users');
+const loginRoute = require('./login');
+const signupRoute=require('./signup');
 const homeRoutes=require('./home');
 
-const constructorMethod=(app) =>{
-    app.use('/',userRoutes);
-    //app.use('/home',homeRoutes);
-    /*
-    app.use("",(req,res)=>{
-        res.redirect("/home");
-    })
-    app.use('*', (req,res) => {
-        res.sendStatus(404);
-    })
-    */
-}
+const constructorMethod = (app) => {
+  app.use('/login', loginRoute);
+  app.use('/signup',signupRoute);
+  app.use('/home',homeRoutes);
+  app.use('*', (req, res) => {
+    res.redirect('/home');
+  });
+};
 
-module.exports=constructorMethod;
+module.exports = constructorMethod;

@@ -1,5 +1,3 @@
-const { ObjectId } = require("mongodb");
-
 module.exports={
     checkUserName(username) {
         if (!username) throw "must provide username"
@@ -24,6 +22,7 @@ module.exports={
     
         return username;
       },
+    
       checkPassWord(password) {
         if (!password) throw "must provide password"
         if (typeof password !== "string")
