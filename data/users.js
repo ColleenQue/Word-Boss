@@ -1,12 +1,12 @@
-const mongoCollections=require('../config/mongoCollections');
+const mongoCollections=require("../config/mongoCollections");
 const users=mongoCollections.users;
-const bycrypt=require('bcrypt');
+const bcrypt=require('bcrypt');
 const saltRounds=12;
 const validation=require('../validation');
-const bcrypt = require('bcryptjs/dist/bcrypt');
-const emailValidator=require('deep-email-validator');
+const emailValidator=require('email-validator');
 
-let exportedMethods={
+let exportedMethod=
+{
     async createUser(username,password,email,isParent,childName){
         username=validation.checkUserName(username);
         password=validation.checkPassWord(password);
@@ -51,8 +51,39 @@ let exportedMethods={
             
             return { userInserted: true };
         }
+
+        
+    },
+
+
+
+
+
+
+    async checkUser(username,password){
+
+
+        //username = username.toLowerCase();
+
+        const userCollection = await users();
+        const user = await userCollection.findOne({ username: username.toLowerCase() });
+       // console.log(user);
+        if (user==null) throw "Either Password or Username is invalid";
+
+
+        
+        let compare = false;
+        compare = await bcrypt.compare(password,user.password);
+
+        if(compare){
+            
+            return {authenticated:true};
+        }
+        else throw "Either Username or Password is invalid"
+
     }
+
 
 }
 
-module.exports=exportedMethods;
+module.exports=exportedMethod;

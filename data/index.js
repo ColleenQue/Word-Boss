@@ -1,5 +1,6 @@
 const userData=require('./users');
 
-module.exports={
+module.exports=
+{
     users: userData,
 }
