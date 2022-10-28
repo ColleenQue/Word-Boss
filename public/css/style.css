@@ -105,9 +105,16 @@ div {
 
 
 
+
 /*
  * Play
  */
+
+ /*Spelling Play*/
+ .spellingbox{
+    
+ }
+
 
 .choice {
     width: 60px;
