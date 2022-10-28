@@ -304,4 +304,45 @@ img {
 
 
 
+.spelling_body{
 
+    border: 3px solid black;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    margin-top: 10%;
+    
+
+
+}
+
+
+/* CSS */
+.button-spelling{
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  margin: 0;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+
+  touch-action: manipulation;
+}
+
+.button-spelling:hover,
+.button-spelling:focus {
+  background-color: #F082AC;
+}
