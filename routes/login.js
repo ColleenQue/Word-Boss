@@ -26,7 +26,7 @@ router.post('', async (req, res) => {
   
   
     if (result.authenticated === true) {
-      
+      req.session.user=username;
       res.render('pages/home', {login:true});
   
     }

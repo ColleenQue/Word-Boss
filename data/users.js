@@ -61,10 +61,7 @@ let exportedMethod=
 
 
     async checkUser(username,password){
-
-
         //username = username.toLowerCase();
-
         const userCollection = await users();
         const user = await userCollection.findOne({ username: username.toLowerCase() });
        // console.log(user);
@@ -81,6 +78,15 @@ let exportedMethod=
         }
         else throw "Either Username or Password is invalid"
 
+    },
+    async findUser(username){
+        const userCollection = await users();
+        const user = await userCollection.findOne({ username: username.toLowerCase() });
+        if(user===null){
+            throw "Cannot find user"
+        }else{
+            return user;
+        }
     }
 
 
