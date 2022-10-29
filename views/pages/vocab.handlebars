@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Home · [Website Name]</title>
+    <title>Vocab · [Website Name]</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
 
@@ -65,7 +65,7 @@
                 <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
                     {{#if login}}
                     <li class="nav-item">
-                        <a class="nav-link" href="/profile">Profile</a>
+                        <a class="nav-link">Profile</a>
                     </li>
                     {{else}}
                     <li class="nav-item">
@@ -87,27 +87,13 @@
 <main>
   <div class="overflow-hidden p-3 p-md-5 m-md-3 text-center ">
     <div class="col-md-8 p-lg-6 mx-auto my-5">
-      <h1 class="display-4 fw-normal">Learn new words everyday!</h1>
-      <p class="display-7 fw-normal">We can have some type of subtitle or information about the website or something..</p>
-    </div>
-  </div>
-
-  <div class="d-md-flex flex-md-equal w-100 my-md-3">
-    <div class="py-5 text-left overflow-hidden" style="background-color:#F3F3F3">
-      <div class="h2 px-5 mx-5" style="padding:100px 0 100px 0">
-        <p>Daily exercises to practice new words!</p>
+      <p class="display-6 fw-normal">Your Word of the Day is...</p>
+      <p class="display-4 fw-normal">{{word}}</p>
+      <p class="display-5 fw-normal">{{type}}</p>
+      <div>
+        <p class="display-6 fw-normal">{{definition}}</p>
       </div>
     </div>
-    <div class="py-5 text-left text-white overflow-hidden" style="background-color:#393E41">
-      <div class="h2 px-5 mx-5" style="padding:100px 0 100px 0">
-        <p>Improve spelling, grammar, and word-choice through various games and activities!</p>
-      </div>
-    </div>
-    <div class="py-5 text-left overflow-hidden" style="background-color:#F3F3F3">
-        <div class="h2 px-5 mx-5" style="padding:100px 0 100px 0">
-          <p>Track your progress as you learn and expand your vocabulary!</p>
-        </div>
-      </div>
   </div>
 </main>
 <footer class="container py-5">
