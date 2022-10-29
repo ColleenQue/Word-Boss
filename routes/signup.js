@@ -22,6 +22,10 @@ router.post('',async(req,res) =>{
             res.status(400).render('pages/signup',{err: true, message: "Error: Email is not valid", title: "Sign up", not_logged_in: true});
         }
         if(req.body.identity==="Child"){
+            if(req.body.childName!=null){
+                res.status(400).render('pages/signup',{err: true, message: "Error: You need to be a parent to have a child", title: "Sign up", not_logged_in: true});
+            }
+            else{
             const result=await user.createUser(username,password1,req.body.email,false);
             if(result.userInserted){
                 res.redirect('/login');
@@ -30,9 +34,14 @@ router.post('',async(req,res) =>{
             {
                 res.status(500).json({error: "Internal Sever Error"});
             }
+
+            }
         }
         else if(req.body.identity==="Parent")
         {
+            if (!(Array.isArray(req.body.childName))){
+                req.body.childName=[req.body.childName];
+            }
             const result=await user.createUser(username,password1,req.body.email,true,req.body.childName);
             if(result.userInserted){
                 res.redirect('/login');
