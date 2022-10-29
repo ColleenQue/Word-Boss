@@ -7,13 +7,14 @@ router.get('', async (req, res) => {
 
     try {
         var obj = await vocab.WordToday();
-        type = obj.type;
-        definition = obj.definition;
-        res.render('pages/spelling', { type: type,definiton:definition});
+        var wordToday = obj.word;
+        type = wordToday.type;
+        definition = wordToday.definition;
+        res.render('pages/spelling', { type: type,definition:definition});
         return;
       }
       catch (e) {
-        res.status(400).render('pages/spelling', { type: type,definiton:definition,error:e});
+        res.status(400).render('pages/spelling', { type: type,definition:definition,error:e});
         return;
       }
 }),
@@ -26,14 +27,15 @@ router.post('', async (req, res) => {
 
     try {
         var obj = await vocab.WordToday();
+        obj = obj.word;
         word = obj.word;
         correct = spelling.spellCheck(answer,word);
-        res.render('pages/spelling', { type: type, definiton:definition, word:word, correct:correct});
+        res.render('pages/spelling', { type: type, definition:definition, word:word, correct:correct});
         return;
 
       }
       catch (e) {
-        res.status(400).render('pages/spelling', { type: type, definiton:definition, word:word, correct:correct,error:e});
+        res.status(400).render('pages/spelling', { type: type, definition:definition, word:word, correct:correct,error:e});
         return;
       }
 
