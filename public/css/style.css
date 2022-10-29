@@ -326,14 +326,13 @@ img {
 
 /* CSS */
 .button-spelling{
-  background-color: #EA4C89;
+  background-color: rgb(88, 172, 71);
   border-radius: 8px;
   border-style: none;
   box-sizing: border-box;
   color: #FFFFFF;
   cursor: pointer;
   display: inline-block;
-  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: 500;
   height: 40px;
@@ -342,14 +341,12 @@ img {
   padding: 10px 16px;
   position: relative;
   text-align: center;
-  text-decoration: none;
   transition: color 100ms;
   vertical-align: baseline;
-
   touch-action: manipulation;
 }
 
 .button-spelling:hover,
 .button-spelling:focus {
-  background-color: #F082AC;
+  background-color: rgb(88, 172, 71);
 }
