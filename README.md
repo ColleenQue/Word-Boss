@@ -25,3 +25,9 @@ Click on the sign up or log in buttons on the upper right corner.
 #### Log In
 1. Provide your valid username and password
 2. If you successfully sign in, you will see the home page with no sign up/log in button. They are replaced by 'Profile' 
+
+#### Learning Feature
+Website generates one word to learn each day. Learn vocab with type and definition. 
+
+#### Spelling Feature
+Play a game to check if you know how to spell the word!
