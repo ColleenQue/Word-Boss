@@ -1,5 +1,6 @@
 const vocab = require("./data/vocab");
-const user = require("./data/users")
+const spelling = require("./data/spelling");
+
 /*
 test("test get all words ", () => {
     expect(vocab.getAllWords()[0]).toBe(obj1);
@@ -47,9 +48,16 @@ async function allwords2(){
     }
 }
 
+function spellCheck(){
+    console.log(spelling.spellCheck("hi","hi"));
+    console.log(spelling.spellCheck("",""));
+    console.log(spelling.spellCheck("","/"));
+    
+}
 
 
 
-testVocab();
 allWords();
 allwords2();
+spellCheck();
+testVocab();
