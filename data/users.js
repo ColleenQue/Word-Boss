@@ -19,6 +19,9 @@ let exportedMethod=
         const hash=await bcrypt.hash(password,saltRounds);
 
         if(!isParent){
+            if(childName!=null){
+                throw "Error: Child cannot have children"
+            }
             let newUser={
                 username: username,
                 password: hash,
