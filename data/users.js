@@ -19,6 +19,9 @@ let exportedMethod=
         const hash=await bcrypt.hash(password,saltRounds);
 
         if(!isParent){
+            if(childName!=null){
+                throw "Error: Child cannot have children"
+            }
             let newUser={
                 username: username,
                 password: hash,
@@ -61,10 +64,7 @@ let exportedMethod=
 
 
     async checkUser(username,password){
-
-
         //username = username.toLowerCase();
-
         const userCollection = await users();
         const user = await userCollection.findOne({ username: username.toLowerCase() });
        // console.log(user);
@@ -81,6 +81,15 @@ let exportedMethod=
         }
         else throw "Either Username or Password is invalid"
 
+    },
+    async findUser(username){
+        const userCollection = await users();
+        const user = await userCollection.findOne({ username: username.toLowerCase() });
+        if(user===null){
+            throw "Cannot find user"
+        }else{
+            return user;
+        }
     }
 
 
