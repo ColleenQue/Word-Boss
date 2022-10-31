@@ -25,13 +25,17 @@ router.post('', async (req, res) => {
 
     let answer = req.body.word;
     let correct;
+    let incorrect;
 
     try {
         var obj = await vocab.WordToday();
         obj = obj.word;
         word = obj.word;
         correct = spelling.spellCheck(answer,word);
-        res.render('pages/spelling', { type: type, definition:definition, word:word, correct:correct});
+        if(correct==false){
+            incorrect = true;
+        }
+        res.render('pages/spelling', { type: type, definition:definition, word:word, correct:correct, incorrect:incorrect});
         return;
 
       }
