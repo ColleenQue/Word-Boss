@@ -34,3 +34,6 @@ Website generates one word to learn each day. Learn vocab with type and definiti
 
 #### Spelling Feature
 Play a game to check if you know how to spell the word!
+
+### Profile Feature
+User opens a page where it displays all of the user's information.

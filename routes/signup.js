@@ -22,7 +22,7 @@ router.post('',async(req,res) =>{
             res.status(400).render('pages/signup',{err: true, message: "Error: Email is not valid", title: "Sign up", not_logged_in: true});
         }
         if(req.body.identity==="Child"){
-            if(req.body.childName!=null){
+            if(req.body.childName==null){
                 res.status(400).render('pages/signup',{err: true, message: "Error: You need to be a parent to have a child", title: "Sign up", not_logged_in: true});
             }
             else{
