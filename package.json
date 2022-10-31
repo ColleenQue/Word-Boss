@@ -4,8 +4,9 @@
   "description": "agile systems assignment",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app.js",
+    "seed":"node seed.js",
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "email-validator": "^2.0.4",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
     "handlebars": "^4.7.7",
     "mongodb": "^4.10.0",
     "sweetalert2": "^11.5.1",

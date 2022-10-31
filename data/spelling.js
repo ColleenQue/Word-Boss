@@ -1,19 +1,13 @@
-const words = require('../words.json');
 
-let exportedMethods = {
-    async getAllPeople() {
-        const {x} = words;
-        console.log(x)
-    },
+module.exports =
+{
+    spellCheck(word, answer) {
 
-    async getAllDefintions() {
-        const {x} = defintions;
-        console.log(x);
+        if (word === answer) {
+            return true;
         }
-
-    
-};
-
-
-
-module.exports = {exportedFunction};
+        else {
+            return false;
+        }
+    }
+}
