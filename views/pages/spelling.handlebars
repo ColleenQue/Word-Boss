@@ -53,7 +53,7 @@
             <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
                 <ul class="navbar-nav w-100 justify-content-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="play.html">Spelling Game</a>
+                        <a class="nav-link" href="/home">Spelling Game</a>
                     </li>
         
                 </ul>
@@ -76,24 +76,26 @@
         </div>
     </nav>
 </header>
-
-<div class="spelling_body">
-    
+<div class="spelling-main">
+    <div class="spelling_body">
     {{!-- <script>
 
     </script> --}}
-    <p> Defintion of Word</p>
+    <p> Definition of Word</p>
+    
     <form action="/login" method="POST" class="user-log-in"></form>
     <br>
-    <input type="text" name="spelling_answer" maxlength="5"> 
+    <input class="spellingInput" type="text" name="word" maxlength="12"> 
     <br>
     <br> 
     <div>
         <button class="button-spelling">Refresh</button>
         <button class="button-spelling">&check;</button>
     </div>
+</div>
 
 </div>
+<img src="/images/studentlearning.jpg" width="200" alt="">
 
 
 
