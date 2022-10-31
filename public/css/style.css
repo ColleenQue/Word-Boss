@@ -361,7 +361,7 @@ img {
     padding: 5px;
     position: fixed;
     bottom: 50%;
-    right: 0;
+    right: 1%;
     width: 300px;
 }
 
@@ -369,7 +369,7 @@ img {
     border-radius: 100% 100% 98% 100% / 100% 100% 100% 100%;
     padding: 5px;
     position: fixed;
-    bottom: 10%;
+    bottom: 1%;
     left: 40%;
     width: 300px;
 
@@ -385,3 +385,13 @@ img {
 
 }
 
+
+.spellingInput{
+	padding: 0;
+	width: 7*(1ch + .5ch);
+	background: repeating-linear-gradient(90deg, 
+		dimgrey 0, dimgrey 1ch, 
+		transparent 0, transparent 1ch + .5ch) 
+		0 100%/ #{7*(1ch + .5ch) - .5ch} 2px no-repeat;
+	letter-spacing: 0.5ch;
+}
