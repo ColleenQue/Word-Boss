@@ -102,10 +102,23 @@ function spellCheck(){
     
 }
 
+function spellCheck2(){
+    try{
+        const incorrect = spelling.spellCheck(123,"hi");
+        console.error("spellCheck did not error")
+    }
+    catch(e){
+        console.log("spellCheck failed successfully")
+    }
+    
+}
 
 
-allWords();
-allwords2();
-spellCheck();
-testVocab();
-testUsers();
+
+
+// allWords();
+// allwords2();
+// spellCheck();
+// testVocab();
+// testUsers();
+spellCheck2();
