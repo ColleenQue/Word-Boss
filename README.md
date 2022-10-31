@@ -20,7 +20,8 @@ Click on the sign up or log in buttons on the upper right corner.
 1. Provide your valid email, username, and password. 
 2. You can choose the visibility of the password by clicking on the 'eye'
 3. If you are a parent, you can input you child's username, and you are allowed to add children to your account
-4. If you are a child, you can go ahead and create your account.
+4. Child accounts must be made first before parent as it is required for the parent to provide the username of the child account on sign-up.
+5. If you are a child, you can go ahead and create your account.
 
 #### Log In
 1. Provide your valid username and password
@@ -34,3 +35,6 @@ Website generates one word to learn each day. Learn vocab with type and definiti
 
 #### Spelling Feature
 Play a game to check if you know how to spell the word!
+
+### Profile Feature
+User opens a page where it displays all of the user's information.
