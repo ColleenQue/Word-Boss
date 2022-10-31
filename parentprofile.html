@@ -12,9 +12,6 @@
     <style>
        body {
         background: #c0c7c0;  
-        background: #67B26F;  /* fallback */
-        background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);  
-        background: linear-gradient(to right, #4ca2cd, #67B26F); 
         padding: 0;
         margin: 0;
         font-family: 'Lato', sans-serif;
@@ -45,6 +42,23 @@
         padding: 5px 10px;
         color: #000;
         }
+        .spruce { 
+        border:5.4px solid #3C3B94;
+        border-radius:5px;
+        padding:5px 15px 5px 15px;
+        margin:0;
+        background-color:#3C3B94;
+        color:#7DFFDA;
+        font-weight:500;
+        opacity:1;
+        transition:1s;
+        }
+        .spruce:hover {
+        cursor:pointer;
+        background-color:#222153;
+        opacity:1;
+        transition:1s;
+        }
     </style>
     </head>
     <body>
@@ -59,8 +73,8 @@
                       <h3>[Student Name]</h3>
                     </div>
                     <div class="card-body">
-                      <p class="mb-0"><strong class="pr-1">Student ID:</strong>Insert Student ID</p>
-                      <p class="mb-0"><strong class="pr-1">Grade:</strong>Insert Grade</p>
+                      <p class="mb-0"><strong class="pr-1">Parent ID:</strong>Insert Parent ID</p>
+                      <!-- <p class="mb-0"><strong class="pr-1">Grade:</strong>Insert Grade</p> -->
                       <p class="mb-0"><strong class="pr-1">Age:</strong>Insert Age</p>
                     </div>
                   </div>
@@ -81,7 +95,6 @@
                           <th width="30%">Parent</th>
                           <td width="2%">:</td>
                           <td>insert parent name</td>
-                          <td>Insert Parent Name</td>
                         </tr>
                         <tr>
                           <th width="30%">Gender</th>
@@ -99,10 +112,32 @@
                     <div style="height: 26px"></div>
                   <div class="card shadow-sm">
                     <div class="card-header bg-transparent border-0">
-                      <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Other Information</h3>
+                      <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Student</h3>
                     </div>
                     <div class="card-body pt-0">
-                        <p>Insert random details here</p>
+                        <p>Registered Students Here: </p>
+                        <table class="table table-bordered">
+                          <tr>
+                            <th width="30%">Student 1</th>
+                            <td width="2%">:</td>
+                            <td>Student ID and other description</td>
+                            <td>
+                              <div class="html_button btn-left">
+                                <a href="#" class="btn spruce small">View Profile</a>
+                              </div>
+                          </td>
+                          </tr>
+                          <tr>
+                            <th width="30%">Student 2</th>
+                            <td width="2%">:</td>
+                            <td>Student ID and other description</td>
+                            <td>
+                              <div class="html_button btn-left">
+                                <a href="#" class="btn spruce small">View Profile</a>
+                              </div>
+                          </td>
+                          </tr>
+                        </table>
                     </div>
                   </div>
                 </div>
@@ -111,4 +146,4 @@
           </div>
     
     </body>
-</html> 
+    </html> 
