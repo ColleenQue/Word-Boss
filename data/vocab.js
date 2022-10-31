@@ -18,7 +18,7 @@ let exportedMethods = {
 
     async getAll(){
         //0-5000 generated words according to the day 
-        const wordCollection = await words();
+        const wordCollection = await myWords();
         const wordList = await wordCollection.find({}).toArray();
         return wordList
     },
