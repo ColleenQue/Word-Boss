@@ -6,6 +6,7 @@ const static = express.static(__dirname + '/public');
 const configRoutes = require('./routes');
 const exphbs = require('express-handlebars');
 
+
 const handlebarsInstance = exphbs.create({
   defaultLayout: 'main',
   // Specify helpers which are only registered on this instance.

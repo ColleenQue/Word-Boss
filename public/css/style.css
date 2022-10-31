@@ -105,9 +105,16 @@ div {
 
 
 
+
 /*
  * Play
  */
+
+ /*Spelling Play*/
+ .spellingbox{
+    
+ }
+
 
 .choice {
     width: 60px;
@@ -302,6 +309,89 @@ img {
     position: relative;
 }
 
+.spelling-main{
+    display: flex;
+}
+
+.spelling_body{
+
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    margin-top: 10%;
+    
 
 
+}
 
+
+/* CSS */
+.button-spelling{
+  background-color: rgb(88, 172, 71);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  margin: 0;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  transition: color 100ms;
+  vertical-align: baseline;
+  touch-action: manipulation;
+}
+
+.button-spelling:hover,
+.button-spelling:focus {
+  background-color: rgb(88, 172, 71);
+}
+
+.spelling_image{
+    border-radius: 100% 100% 98% 0% / 45% 0% 36% 100%;
+    padding: 5px;
+    position: fixed;
+    bottom: 50%;
+    right: 1%;
+    width: 300px;
+}
+
+.spelling_middle_image{
+    border-radius: 100% 100% 98% 100% / 100% 100% 100% 100%;
+    padding: 5px;
+    position: fixed;
+    bottom: 1%;
+    left: 40%;
+    width: 300px;
+
+}
+
+.spelling_left_image{
+    border-radius: 100% 100% 98% 100% / 100% 100% 100% 100%;
+    padding: 5px;
+    position: fixed;
+    bottom: 40%;
+    left: 2.5%;
+    width: 300px;
+
+}
+
+
+.spellingInput{
+	padding: 0;
+	width: 7*(1ch + .5ch);
+	background: repeating-linear-gradient(90deg, 
+		dimgrey 0, dimgrey 1ch, 
+		transparent 0, transparent 1ch + .5ch) 
+		0 100%/ #{7*(1ch + .5ch) - .5ch} 2px no-repeat;
+	letter-spacing: 0.5ch;
+}
