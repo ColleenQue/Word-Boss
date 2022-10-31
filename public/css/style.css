@@ -356,6 +356,32 @@ img {
   background-color: rgb(88, 172, 71);
 }
 
-.spellingInput{
-    
+.spelling_image{
+    border-radius: 100% 100% 98% 0% / 45% 0% 36% 100%;
+    padding: 5px;
+    position: fixed;
+    bottom: 50%;
+    right: 0;
+    width: 300px;
 }
+
+.spelling_middle_image{
+    border-radius: 100% 100% 98% 100% / 100% 100% 100% 100%;
+    padding: 5px;
+    position: fixed;
+    bottom: 10%;
+    left: 40%;
+    width: 300px;
+
+}
+
+.spelling_left_image{
+    border-radius: 100% 100% 98% 100% / 100% 100% 100% 100%;
+    padding: 5px;
+    position: fixed;
+    bottom: 40%;
+    left: 2.5%;
+    width: 300px;
+
+}
+
