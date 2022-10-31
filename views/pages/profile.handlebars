@@ -1,0 +1,98 @@
+    <!DOCTYPE html>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <!-- Font Awesome CSS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
+
+   
+    <html>
+    <head>
+    <style>
+       body {
+        background: #c0c7c0;  
+        padding: 0;
+        margin: 0;
+        font-family: 'Lato', sans-serif;
+        color: #000;
+        }
+        .student-profile .card {
+        border-radius: 10px;
+        }
+        .student-profile .card .card-header .profile_img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        margin: 10px auto;
+        border: 10px solid #ccc;
+        border-radius: 50%;
+        }
+        .student-profile .card h3 {
+        font-size: 20px;
+        font-weight: 700;
+        }
+        .student-profile .card p {
+        font-size: 16px;
+        color: #000;
+        }
+        .student-profile .table th,
+        .student-profile .table td {
+        font-size: 14px;
+        padding: 5px 10px;
+        color: #000;
+        }
+        .spruce { 
+        border:5.4px solid #3C3B94;
+        border-radius:5px;
+        padding:5px 15px 5px 15px;
+        margin:0;
+        background-color:#3C3B94;
+        color:#7DFFDA;
+        font-weight:500;
+        opacity:1;
+        transition:1s;
+        }
+        .spruce:hover {
+        cursor:pointer;
+        background-color:#222153;
+        opacity:1;
+        transition:1s;
+        }
+    </style>
+    </head>
+    <body>
+    
+        <div class="student-profile py-4">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="card shadow-sm">
+                    <div class="card-header bg-transparent text-center">
+                      <img class="profile_img" src="https://www.ddvelderlaw.com/wp-content/uploads/2019/07/storyblocks-brain-training-with-dumbbells-and-glasses-vector_rA-6CycLz_thumb.jpg" alt="student dp">
+                      <h3>{{username}}</h3>
+                    </div>
+                    <div class="card-body">
+                    <!--
+                      <p class="mb-0"><strong class="pr-1">Parent ID:</strong>Insert Parent ID</p>
+                     <p class="mb-0"><strong class="pr-1">Grade:</strong>Insert Grade</p>
+                      <p class="mb-0"><strong class="pr-1">Age:</strong>Insert Age</p> -->
+                      <p class="mb-0"><strong class="pr-1">Email:</strong>{{email}}</p>
+                      {{#if isParent}}
+                      <div class="card-body pt-0">
+                        <table class="table table-bordered">
+                            {{#each child}}
+                            <th width="30%">Child</th>
+                            <td>{{this.username}}</td>
+                            {{/each}}
+                        </table>
+                      </div>
+                      {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </body>
+    </html> 
