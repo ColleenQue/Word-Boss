@@ -1,0 +1,7 @@
+Bishawjit Saha
+Sprint 2 test cases Frontend
+
+Images: load correctly 
+Padding: works correctly regardless of window size
+Buttons: Error still have to be implemented
+Text: Error text outputs still not implemented
