@@ -112,6 +112,17 @@ function spellCheck2(){
     }
     
 }
+function spellCheck3(){
+    try{
+        const incorrect = spelling.spellCheck("Hello","hi");
+        console.error(incorrect);
+        //returns false
+    }
+    catch(e){
+        console.log("spellCheck failed successfully")
+    }
+    
+}
 
 
 
@@ -121,4 +132,5 @@ function spellCheck2(){
 // spellCheck();
 // testVocab();
 // testUsers();
-spellCheck2();
+// spellCheck2();
+// spellCheck3();
