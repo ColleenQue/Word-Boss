@@ -23,7 +23,7 @@ router.get('', async (req, res) => {
 router.post('', async (req, res) => {
 
 
-    let answer = req.body.spelling_answer;
+    let answer = req.body.word;
     let correct;
 
     try {
