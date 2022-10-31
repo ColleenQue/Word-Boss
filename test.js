@@ -43,6 +43,16 @@ async function testUsers(){
     {
         console.log("Completed Successfully");
     }
+    
+    try{
+        let username = "Jae Jang"
+        let password = "monkeybusiness2002"
+        let email = "jaesus02@gmail.com"
+        await users.createUser(username,password,email,false);
+        console.log("Completed Successfully");
+    }catch(e){
+        console.log("Got error" + e);
+    }
     console.log("DONE");
     await dbConnection.closeConnection();
 }
