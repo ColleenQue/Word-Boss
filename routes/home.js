@@ -7,7 +7,7 @@ router.get('', async (req, res) => {
         res.render('pages/home', {login:true});
     }
     else{
-        res.redirect('/login');
+        res.render('pages/home', );
     }
 
 });

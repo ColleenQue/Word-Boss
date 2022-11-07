@@ -4,6 +4,16 @@ const spelling = require('../data/spelling')
 const express = require('express');
 const router = express.Router();
 
+//Middleware
+//have to log in
+router.use("/", (req, res, next) => {
+    //if session not logged in
+    if (!req.session.user) {
+      return res.redirect("/login");
+    }
+    next();
+  });
+
 router.get('', async (req, res) => {
 
     try {
