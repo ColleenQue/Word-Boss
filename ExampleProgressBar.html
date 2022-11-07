@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<style>
+#Progress_Status {
+	width: 50%;
+	background-color: #ddd;
+}
+
+#myprogressBar {
+	width: 2%;
+	height: 20px;
+	background-color: #4CAF50;
+}
+</style>
+<body>
+
+<p>Progress:</p>
+
+<div id="Progress_Status">
+<div id="myprogressBar"></div>
+</div>
+
+<br>
+<button onclick="update()">Submit</button>
+
+<script>
+	function update() {
+		var element = document.getElementById("myprogressBar");
+		var width = 1;
+		var identity = setInterval(scene, 10);
+		function scene() {
+			if (width >= 100) {
+			clearInterval(identity);
+			} 
+			else {
+			width++;
+			element.style.width = width + '%';
+			}
+		}
+	}
+</script>
+
+</body>
+</html>
