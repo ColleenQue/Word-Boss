@@ -3,6 +3,7 @@ const signupRoute=require('./signup');
 const vocabRoute = require('./vocab');
 const homeRoutes=require('./home');
 const profileRoutes=require('./profile');
+const paymentRoutes=require('./payment');
 const { propfind } = require('./login');
 const spellingRoutes = require('./spelling');
 
@@ -13,6 +14,7 @@ const constructorMethod = (app) => {
   app.use('/home',homeRoutes);
   app.use('/profile',profileRoutes);
   app.use('/spelling',spellingRoutes);
+  app.use('/payment', paymentRoutes);
   app.use('*', (req, res) => {
     res.redirect('/home');
   });

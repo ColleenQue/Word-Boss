@@ -73,7 +73,7 @@ function validateDate(date){
     }
     let month = parseInt(listeddate[0]);
     let year = parseInt(listeddate[1]);
-    
+
     //Check Year
     let currentYear = new Date()
     maxyear = currentYear.getFullYear();
