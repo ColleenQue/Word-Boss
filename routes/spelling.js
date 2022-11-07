@@ -1,7 +1,18 @@
+
 const vocab = require('../data/vocab');
 const spelling = require('../data/spelling')
 const express = require('express');
 const router = express.Router();
+
+//Middleware
+//have to log in
+router.use("/", (req, res, next) => {
+    //if session not logged in
+    if (!req.session.user) {
+      return res.redirect("/login");
+    }
+    next();
+  });
 
 router.get('', async (req, res) => {
 
@@ -22,15 +33,19 @@ router.get('', async (req, res) => {
 router.post('', async (req, res) => {
 
 
-    let answer = req.body.spelling_answer;
+    let answer = req.body.word;
     let correct;
+    let incorrect;
 
     try {
         var obj = await vocab.WordToday();
         obj = obj.word;
         word = obj.word;
         correct = spelling.spellCheck(answer,word);
-        res.render('pages/spelling', { type: type, definition:definition, word:word, correct:correct});
+        if(correct==false){
+            incorrect = true;
+        }
+        res.render('pages/spelling', { type: type, definition:definition, word:word, correct:correct, incorrect:incorrect});
         return;
 
       }
