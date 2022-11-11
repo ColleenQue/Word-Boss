@@ -74,16 +74,16 @@
         <form action="/login" method="POST" class="user-log-in">
         <!-- If the user is not authenticaed, it will render a view with a login form. The form will contain two inputs, one for username and one for password. The form will be used to submit a POST request to the /login route on the server and must have an id of login-form. The input for the username must have a name/id of username; the input for the password must have name/id of password and should be an input type of password.-->
             <label for="cname">Name on Card</label>
-             <input id = "cardnumber" type="cardnumber" class="cardnumber_input" placeholder="Enter name on card" value = "{{password}}" name="password" required minlength="2">
+             <input id = "cardnumber"  class="cardnumber_input" placeholder="Enter name on card" value = "{{password}}" name="password" required minlength="2">
              <br>
             <label for="cname">Card Number</label>
-             <input id = "cardnumber" type="cardnumber" class="cardnumber_input" placeholder="Enter Card Number (must have at least 15 characters)" value = "{{password}}" name="password" required maxlength="16">
+             <input id = "cardnumber"  class="cardnumber_input" placeholder="Enter Card Number (must have at least 15 characters)" value = "{{password}}" name="password" required maxlength="16">
             <br>
             <label for="cname">CVC</label>
-             <input id = "cardnumber" type="cardnumber" class="cardnumber_input" placeholder="Enter Card Number (must have at least 15 characters)" value = "{{password}}" name="password" required maxlength="3">
+             <input id = "cardnumber" class="cardnumber_input" placeholder="Enter CVC" value = "{{password}}" name="password" >
             <br>
             <label for="cname">Exp. Date</label>
-             <input id = "cardnumber" type="cardnumber" class="cardnumber_input" placeholder="Enter Card Number (must have at least 15 characters)" value = "{{password}}" name="password" required minlength="6">
+             <input id = "cardnumber"  class="cardnumber_input" placeholder="Enter Exp. Date" value = "{{password}}" name="password" required maxlength="6">
             {{!-- </div> --}}
         </div>
         </form>

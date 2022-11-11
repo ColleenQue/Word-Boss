@@ -36,7 +36,7 @@ function validateCreditCard(str){
     if (checkStingHasNumbers(str) != true){
         return false;
     }
-    if (str.length > 16){
+    if (str.length > 16 || str.length < 15){
         return false;
     }
     
@@ -49,7 +49,7 @@ function validateCreditCardCVC(str){
     if (checkStingHasNumbers(str) != true){
         return false;
     }
-    if (str.length > 3){
+    if (str.length != 3){
         return false;
     }
 }
@@ -95,7 +95,7 @@ function validateCreditCardExpirationDate(str){
     if (checkStingHasNumbers(str) != true){
         return false;
     }
-    if (str.length > 6){
+    if (str.length > 6 || str.length < 6){
         return false;
     }
     validateDate(str);
@@ -109,7 +109,7 @@ function validateCreditCardPostalCode(str){
     if (checkStingHasNumbers(str) != true){
         return false;
     }
-    if (str.length > 5){
+    if (str.length > 5 || str.length<5){
         return false;
     }
     return true;

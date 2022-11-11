@@ -6,6 +6,8 @@ const router = express.Router();
 router.get('/', async (req, res) => {
 
     var word,type,definition;
+    
+
 
     try {
         var obj = await vocab.WordToday();
@@ -14,7 +16,7 @@ router.get('/', async (req, res) => {
         definition = wordToday.definition;
         word = wordToday.word;
 
-        res.render('pages/payment', { word: word, type: type, definition:definition});
+        res.render('pages/payment', { card: card, type: type, definition:definition});
       }
       catch (e) {
         res.status(400).render('pages/payment', { word: word, type: type, definition:definition,error:e});
