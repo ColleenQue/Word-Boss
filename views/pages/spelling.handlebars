@@ -28,5 +28,76 @@
 
 
 
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="site-header py-2 justify-content-start" style="background-color:white; margin-top:1em;">
+        <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
+            <div class="container">
+                <a href="/" class="navbar-brand d-flex w-50 me-auto">[Website Name]</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsingNavbar3">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+                <ul class="navbar-nav w-100 justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/vocab">Vocab</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/spelling">Spelling</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/quiz">Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/fillblank">Fill Blank</a>
+                    </li>
+                </ul>
+                    <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
+
+                        <li class="nav-item">
+                            <a class="nav-link">Profile</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="spelling-main">
+        <div class="spelling_body">
+            {{!--
+            <script>
+
+            </script> --}}
+            {{#if correct}}
+            <p>You got it!</p>
+            <a class="nav-link" href="/spelling">Click here to spell again</a>
+            {{else}}
+            
+            {{#if incorrect}}
+            <p>You're almost there!</p>
+            <p> The word is: {{word}}</p>
+            <a class="nav-link" href="/spelling">Click here to try again</a>
+            {{else}}
+
+            <p> Definition of Word: {{definition}}</p>
+
+            <form method="POST" action="/spelling" id="user-log-in">
+
+                <input class="spellingInput" type="text" name="word" maxlength="12">
+                <button type="button-spelling"> &check; </button>
+            </form>
+
+            {{/if}}
+            {{/if}}
+
+
+
+        </div>
     </div>
 </div>
