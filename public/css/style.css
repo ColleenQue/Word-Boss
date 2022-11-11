@@ -111,9 +111,6 @@ div {
  */
 
  /*Spelling Play*/
- .spellingbox{
-    
- }
 
 
 .choice {
@@ -391,7 +388,6 @@ img {
 	width: 7*(1ch + .5ch);
 	background: repeating-linear-gradient(90deg, 
 		dimgrey 0, dimgrey 1ch, 
-		transparent 0, transparent 1ch + .5ch) 
-		0 100%/ #{7*(1ch + .5ch) - .5ch} 2px no-repeat;
+		transparent 0, transparent 1ch + .5ch);
 	letter-spacing: 0.5ch;
 }

@@ -65,7 +65,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/quiz">Quiz</a>
                     </li>
-                    <li class="nav-item">
+                     <li class="nav-item">
                         <a class="nav-link" href="/fillblank">Fill Blank</a>
                     </li>
                 </ul>
@@ -82,41 +82,33 @@
     </header>
     <div class="spelling-main">
         <div class="spelling_body">
-            {{!--
-            <script>
-
-            </script> --}}
-            {{#if correct}}
-            <p>You got it!</p>
-            <a class="nav-link" href="/spelling">Click here to spell again</a>
-            {{else}}
-            
-            {{#if incorrect}}
-            <p>You're almost there!</p>
-            <p> The word is: {{word}}</p>
-            <a class="nav-link" href="/spelling">Click here to try again</a>
-            {{else}}
-
-            <p> Definition of Word: {{definition}}</p>
-
-            <form method="POST" action="/spelling" id="user-log-in">
-
-                <input class="spellingInput" type="text" name="word" maxlength="12">
-                <button type="button-spelling"> &check; </button>
+            <!--
+            <form method="POST" action="/fillblank" id="user-log-in">
+                <div style="display: inline-block">
+                    <input id="userWord"></input>
+                </div>
+            <p>{{defInPart}}</p>
             </form>
-
+            -->
+            {{#if wrong}}
+            <p>{{wrong}}</p>
             {{/if}}
+            {{#if right}}
+            <p>{{right}}</p>
             {{/if}}
-
-
-
+            <form method="POST" action="/fillblank" id="fillblank">
+            <p>Word:</p>
+            <input name="wordInput1">
+            <p>Type:</p>
+            <input name="wordType">
+            <p>Sentence:</p>
+            <p style="display:inline">{{partOne}}</p>
+            <input name="wordInput2">
+            <p style="display:inline">{{partTwo}}</p>
+            <br>
+            <br>
+            <button type="submit">Submit</button>
+            </form>
         </div>
-
     </div>
-    <img src="/public/images/spellingtime.png" width="200" alt="" class="spelling_left_image">
-    <img src="/public/images/Kids.jpg" width="200" alt="" class="spelling_middle_image">
-    <img src="/public/images/studentlearning.jpg" width="200" alt="" class="spelling_image">
-
-
-
 </html>
