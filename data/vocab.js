@@ -50,7 +50,6 @@ let exportedMethods = {
         await wordCollection.insertOne(newWord);
         return newWord;
     }
-
 };
 
 module.exports = exportedMethods;
