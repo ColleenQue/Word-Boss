@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Home · [Website Name]</title>
+    <title>{{title}}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/product/">
 
@@ -76,11 +76,17 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/quiz">Quiz</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/fillblank">Fill_in_the_Blank</a>
+                            </li>
                         </ul>
                         <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
                             {{#if login}}
                             <li class="nav-item">
                                 <a class="nav-link" href="/profile">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Logout</a>
                             </li>
                             {{else}}
                             <li class="nav-item">
@@ -90,6 +96,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/login">Log In</a>
                             </li>
+
                             {{/if}}
 
 
@@ -102,11 +109,7 @@
         {{{body}}}
     </main>
 
-
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
-        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-    <script src="/public/scripts/ajax.js"></script>
 
 </body>
 

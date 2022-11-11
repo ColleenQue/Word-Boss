@@ -22,11 +22,11 @@ router.get('', async (req, res) => {
         var wordToday = obj.word;
         type = wordToday.type;
         definition = wordToday.definition;
-        res.render('pages/spelling', { type: type,definition:definition,login:true});
+        res.render('pages/spelling', { type: type,definition:definition,login:true,title:"spelling"});
         return;
       }
       catch (e) {
-        res.status(400).render('pages/spelling', { type: type,definition:definition,error:e,login:true});
+        res.status(400).render('pages/spelling', { type: type,definition:definition,error:e,login:true,title:"spelling"});
         return;
       }
 }),
@@ -54,13 +54,13 @@ router.post('', async (req, res) => {
           incorrect = true;
         }
 
-        res.render('pages/spelling', { type: type, definition:definition, word:word, correct:correct, incorrect:incorrect,login:true});
+        res.render('pages/spelling', { type: type, definition:definition, word:word, correct:correct, incorrect:incorrect,login:true,title:"spelling"});
 
         return;
 
       }
       catch (e) {
-        res.status(400).render('pages/spelling', { type: type, definition:definition, word:word, correct:correct,error:e,login:true});
+        res.status(400).render('pages/spelling', { type: type, definition:definition, word:word, correct:correct,error:e,login:true,title:"spelling"});
         return;
       }
 
