@@ -9,12 +9,12 @@ router.get('',async(req,res)=>{
     console.log(getUser);
     if(getUser.children===null){
         //return res.json({username: getUser.username, email: getUser.email});
-        return res.render('pages/profile', {username: getUser.username, email: getUser.email,isParent:false});
+        return res.render('pages/profile', {username: getUser.username, email: getUser.email,isParent:false,login:true});
     }
     else{
         //return res.json({username: getUser.username, email: getUser.email, child: getUser.children});
         console.log(getUser.children);
-        return res.render('pages/profile', {username: getUser.username, email: getUser.email, child: getUser.children,isParent:true});
+        return res.render('pages/profile', {username: getUser.username, email: getUser.email, child: getUser.children,isParent:true,login:true});
     }
 })
 
