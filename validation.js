@@ -35,6 +35,118 @@ module.exports={
         return password;
       },
 
+      checkCname(cname){
+        if (!cname) throw "must provide cname"
+        if (typeof cname !== "string")
+            throw "Error: password should be a string";
+        cname = cname.trim();
+ 
+        cname=cname.split(" ");
+        if (cname.length < 2){
+            throw 'One of the castMember only provided their firstName';
+        }
+        if (cname.length > 2){
+            throw 'Not valid input';
+        }
+        if (cname[0].trim().length < 2){
+            throw 'First name has to be at least 2 characters';
+        }
+        if (cname[1].trim().length < 2){   
+            throw 'Last name has to be at least 2 characters';
+        }
+        return cname;
+      },
+      checkStringHasNumbers(str){
+        let numbers= /[0-9]/;
+        if(numbers.test(str)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    },
+      validateCreditCard(str){
+        if (str == undefined){
+            throw 'Must provide valid values';
+        }
+        if (checkStingHasNumbers(str) != true){
+            throw 'Numbers must be provided.';
+        }
+        if (str.length > 16 || str.length < 15){
+            throw 'Not valid input';
+        }
+        return str;
+    },
+    validateCreditCardPostalCode(str){
+        if (str == undefined){
+            throw 'Must provide valid values';
+        }
+        if (checkStingHasNumbers(str) != true){
+            throw 'Numbers must be provided.';
+        }
+        if (str.length > 5 || str.length<5){
+            throw 'Not valid input';
+        }
+        return str;
+    },
+    validateDate(date){
+        let listeddate="";
+        //month/year
+        let regex_date = /\d{1,2}\/\d{4}$/;
+        // console.log(regex_date);
+        //console.log(date);
+        if (!regex_date.test(date.trim())){
+            throw 'Date is not in correct form';
+        }
+        if (!date.includes("/")){
+            throw 'Invalid format no /.';
+        }
+        listeddate = date.trim().split("/");
+    
+        if (listeddate.length != 3){
+            throw 'Invalid format Not in : month, day, year';
+        }
+        let month = parseInt(listeddate[0]);
+        let year = parseInt(listeddate[1]);
+    
+        //Check Year
+        let currentYear = new Date()
+        maxyear = currentYear.getFullYear();
+        // console.log(maxyear);
+        if (year < currentYear || year > maxyear+5){
+            throw 'The expiration date is less than right now.';
+        }
+        if (month < 1 || month > 12){
+            throw 'No month less than 01 and no more than 12 months';
+        }
+        return date;
+    
+    },
+    validateCreditCardExpirationDate(str){
+        if (str == undefined){
+            throw 'No date given';
+        }
+        if (checkStingHasNumbers(str) != true){
+            throw 'Invalid format';
+        }
+        if (str.length > 6 || str.length < 6){
+            throw 'Invalid format';
+        }
+        validateDate(str);
+        return str;
+    },
+    validateCreditCardCVC(str){
+        if (str == undefined){
+            throw 'No CVC given';
+        }
+        if (checkStingHasNumbers(str) != true){
+            throw 'CVC not correct format';
+        }
+        if (str.length != 3){
+            throw 'CVC not correct format';
+        }
+        return str;
+    }
       checkId(id){
 
         if (!id) throw 'You must provide an id to search for';
