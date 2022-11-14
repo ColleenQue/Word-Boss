@@ -9,6 +9,14 @@ async function testProgress(){
     }
     catch(e){
         console.log(e);
+    } 
+    // Jae's test
+    // catching improper use of the method with no inputs
+    try{ 
+        const user = await progress.updateProgress();
+        console.log(user);
+    }catche(e){
+        cosole.log(e);
     }
 }
 
