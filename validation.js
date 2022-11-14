@@ -147,7 +147,7 @@ module.exports={
         }
         return str;
     }
-      checkId(id){
+      ,checkId(id){
 
         if (!id) throw 'You must provide an id to search for';
         if (typeof id !== 'string') throw 'Id must be a string';
