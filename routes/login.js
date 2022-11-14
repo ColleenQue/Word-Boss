@@ -5,7 +5,7 @@ const user=require('../data/users');
 
 router.get('', async (req, res) => {
 
-    res.render('pages/login', {});
+    res.render('pages/login', {title:"Log in"});
 
 });
 

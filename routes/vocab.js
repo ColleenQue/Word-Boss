@@ -25,10 +25,10 @@ router.get('/', async (req, res) => {
         definition = wordToday.definition;
         word = wordToday.word;
 
-        res.render('pages/vocab', { word: word, type: type, definition:definition,login:log});
+        res.render('pages/vocab', { word: word, type: type, definition:definition,login:log,title:"vocab"});
       }
       catch (e) {
-        res.status(400).render('pages/vocab', { word: word, type: type, definition:definition,error:e,login:log});
+        res.status(400).render('pages/vocab', { word: word, type: type, definition:definition,error:e,login:log,title:"vocab"});
         return;
       }
 
