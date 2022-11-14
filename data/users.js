@@ -26,6 +26,7 @@ let exportedMethod=
                 username: username,
                 password: hash,
                 email: email,
+                progress:0
             }
             const insertInfo=await userCollections.insertOne(newUser);
             if (!insertInfo.acknowledged || !insertInfo.insertedId){

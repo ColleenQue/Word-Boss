@@ -1,12 +1,22 @@
 const vocab = require('../data/vocab');
 const spelling = require('../data/spelling')
 const express = require('express');
+const e = require('express');
 const router = express.Router();
+
 
 
 router.get('/', async (req, res) => {
 
     var word,type,definition;
+    var log;
+
+    if (!req.session.user){
+      log = false;
+    }
+    else{
+      log=true;
+    }
 
     try {
         var obj = await vocab.WordToday();
@@ -15,10 +25,10 @@ router.get('/', async (req, res) => {
         definition = wordToday.definition;
         word = wordToday.word;
 
-        res.render('pages/vocab', { word: word, type: type, definition:definition});
+        res.render('pages/vocab', { word: word, type: type, definition:definition,login:log,title:"vocab"});
       }
       catch (e) {
-        res.status(400).render('pages/vocab', { word: word, type: type, definition:definition,error:e});
+        res.status(400).render('pages/vocab', { word: word, type: type, definition:definition,error:e,login:log,title:"vocab"});
         return;
       }
 

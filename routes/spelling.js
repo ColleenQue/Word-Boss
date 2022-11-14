@@ -1,6 +1,7 @@
 
 const vocab = require('../data/vocab');
 const spelling = require('../data/spelling')
+const progress = require('../data/progress');
 const express = require('express');
 const router = express.Router();
 
@@ -21,11 +22,11 @@ router.get('', async (req, res) => {
         var wordToday = obj.word;
         type = wordToday.type;
         definition = wordToday.definition;
-        res.render('pages/spelling', { type: type,definition:definition});
+        res.render('pages/spelling', { type: type,definition:definition,login:true,title:"spelling"});
         return;
       }
       catch (e) {
-        res.status(400).render('pages/spelling', { type: type,definition:definition,error:e});
+        res.status(400).render('pages/spelling', { type: type,definition:definition,error:e,login:true,title:"spelling"});
         return;
       }
 }),
@@ -34,6 +35,8 @@ router.post('', async (req, res) => {
 
 
     let answer = req.body.word;
+    let username = req.session.user;
+    console.log(username);
     let correct;
     let incorrect;
 
@@ -42,15 +45,22 @@ router.post('', async (req, res) => {
         obj = obj.word;
         word = obj.word;
         correct = spelling.spellCheck(answer,word);
-        if(correct==false){
-            incorrect = true;
+        if(correct){
+          //update progress
+          progress.updateProgress(username,20);
         }
-        res.render('pages/spelling', { type: type, definition:definition, word:word, correct:correct, incorrect:incorrect});
+        else{
+          //incorrect
+          incorrect = true;
+        }
+
+        res.render('pages/spelling', { type: type, definition:definition, word:word, correct:correct, incorrect:incorrect,login:true,title:"spelling"});
+
         return;
 
       }
       catch (e) {
-        res.status(400).render('pages/spelling', { type: type, definition:definition, word:word, correct:correct,error:e});
+        res.status(400).render('pages/spelling', { type: type, definition:definition, word:word, correct:correct,error:e,login:true,title:"spelling"});
         return;
       }
 
