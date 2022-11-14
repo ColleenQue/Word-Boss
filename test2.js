@@ -69,5 +69,12 @@ async function paymentPortal(){
 
 }
 
+/*
+Bishawjit's test progressbar
+increment of progressbar: works
+decrement of progressbar: fails
+Implementation during activities: fail (need to complete implmentation with activities)
+*/ 
+
 testProgress();
 
