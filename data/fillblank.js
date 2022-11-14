@@ -1,12 +1,12 @@
-var words = require('../words.json')
+var words = require('../fillblankWords.json');
 const mongoCollections=require("../config/mongoCollections");
-const myWords =mongoCollections.myWords;
+const fillWords =mongoCollections.fillWords;
 const { ObjectId } = require("mongodb");
 
 
 let exportedMethods = {
     getAllWords() {
-        //5000 words in local inventory
+        //all words in fill blank json
         return words;
     },
 
@@ -18,7 +18,7 @@ let exportedMethods = {
 
     async getAll(){
         //0-5000 generated words according to the day 
-        const wordCollection = await myWords();
+        const wordCollection = await fillWords();
         const wordList = await wordCollection.find({}).toArray();
         return wordList
     },
@@ -37,7 +37,7 @@ let exportedMethods = {
             date: date, 
             word: word
         }
-        const wordCollection = await myWords();
+        const wordCollection = await fillWords();
 
 
         //check if day already exists
@@ -50,6 +50,7 @@ let exportedMethods = {
         await wordCollection.insertOne(newWord);
         return newWord;
     }
+
 };
 
 module.exports = exportedMethods;
