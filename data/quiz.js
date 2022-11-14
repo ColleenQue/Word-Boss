@@ -16,12 +16,12 @@ let exportedMethods = {
     },
     async generateQuestion(){
         let questionObj = vocab.Random();
-        let correct = questionObj.definition;
+        let curr_definition = questionObj.definition;
         let [wrong1, wrong2, wrong3] = [vocab.Random(),vocab.Random(),vocab.Random()];
         let wrong = [wrong1.word, wrong2.word, wrong3.word];
         let choices = [questionObj.word].concat(wrong);
         choices = this.shuffle(choices);
-        return [correct, choices];
+        return [questionObj.word, curr_definition, choices];
     }
 };
 
