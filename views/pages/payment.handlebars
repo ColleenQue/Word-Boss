@@ -71,20 +71,21 @@
                   <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
     
                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Payment Portal</p>
-        <form action="/login" method="POST" class="user-log-in">
+        <form action="/payment" method="POST" class="user-payment">
         <!-- If the user is not authenticaed, it will render a view with a login form. The form will contain two inputs, one for username and one for password. The form will be used to submit a POST request to the /login route on the server and must have an id of login-form. The input for the username must have a name/id of username; the input for the password must have name/id of password and should be an input type of password.-->
             <label for="cname">Name on Card</label>
-             <input id = "cardnumber"  class="cardnumber_input" placeholder="Enter name on card" value = "{{password}}" name="password" required minlength="2">
-             <br>
+             <input id = "name"  class="cardnumber_input" placeholder="Enter name on card" value = "{{password}}" name="name" required minlength="2">
             <label for="cname">Card Number</label>
-             <input id = "cardnumber"  class="cardnumber_input" placeholder="Enter Card Number (must have at least 15 characters)" value = "{{password}}" name="password" required maxlength="16">
+             <input id = "cardnumber"  class="cardnumber_input" placeholder="Enter Card Number (must have at least 15 characters)" value = "{{password}}" name="cardnumber" required maxlength="16">
             <br>
             <label for="cname">CVC</label>
-             <input id = "cardnumber" class="cardnumber_input" placeholder="Enter CVC" value = "{{password}}" name="password" >
+             <input id = "cardnumberCVC" class="cardnumber_input" placeholder="Enter CVC" value = "{{password}}" name="cardnumberCVC" >
             <br>
             <label for="cname">Exp. Date</label>
-             <input id = "cardnumber"  class="cardnumber_input" placeholder="Enter Exp. Date" value = "{{password}}" name="password" required maxlength="6">
+             <input id = "cardnumberExp"  class="cardnumber_input" placeholder="Enter Exp. Date" value = "{{password}}" name="password" required maxlength="6">
             {{!-- </div> --}}
+            <button type="submit" class="paymentsubmission">Pay</button>
+
         </div>
         </form>
                   </div>
