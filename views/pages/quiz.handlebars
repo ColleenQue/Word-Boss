@@ -12,12 +12,29 @@
           <h3>Pick the word that best fits the following definition:</h3>
       </div>
       <h4>{{definition}}</h4>
-      <div>
-        <p><input type="radio" name="choice">{{choice1}}</input></p>
-        <p><input type="radio" name="choice">{{choice2}}</input></p>
-        <p><input type="radio" name="choice">{{choice3}}</input></p>
-        <p><input type="radio" name="choice">{{choice4}}</input></p>
-      </div>
+      <form action="/quiz" method="POST">
+        <p>
+          <input type="radio" name="choice" id= "choice1" value ={{choice1}}>
+          <label for ="choice1">{{choice1}}</label>
+        </p>
+
+        <p>
+          <input type="radio" name="choice" id= "choice2" value={{choice2}}>
+          <label for="choice2">{{choice2}}</label>
+        </p>
+
+        <p>
+          <input type="radio" name="choice" id="choice3" value={{choice3}}>
+          <label for="choice3">{{choice3}}</label>
+        </p>
+        <p>
+          <input type="radio" name="choice" id="choice3" value={{choice4}}>
+          <label for="choice3">{{choice4}}</label>
+        </p>
+
+        <p><input type="submit"></input></p>
+        
+      </form>
     </div>
-  </div>
+   </div>
 </main>
