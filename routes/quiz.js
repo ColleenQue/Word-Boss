@@ -1,6 +1,9 @@
 const vocab = require('../data/vocab');
 const quiz = require('../data/quiz');
 const express = require('express');
+const user = require('../data/users')
+const { users } = require('../config/mongoCollections');
+const { updateUser } = require('../data/users');
 const router = express.Router();
 
 let question;
@@ -20,6 +23,10 @@ router.post('/', async (req, res) => {
     search = search.choice;
     let correct = question[0];
     if(search == correct){
+        const getUser = await user.findUser(req.session.user);
+        let counter = getUser.correct + 1;
+        updateUser(getUser.username, getUser.password, getUser.email, counter);
+        console.log(getUser);
         return res.render('pages/correct');
     }
     else{
