@@ -1,5 +1,6 @@
 const vocab = require("./data/vocab");
 const spelling = require("./data/spelling");
+const fillblank=require("./data/fillblank");
 
 //cindy's test cases for users
 const dbConnection=require('./config/mongoConnection');
@@ -134,6 +135,27 @@ function spellCheck3(){
     
 }
 
+async function testFillBlank(){
+    //print out the word used for fillblank
+    try{
+        const word = await fillblank.WordToday();
+        console.log(word);
+    }
+    catch(e){
+        console.log(e);
+    }
+
+    //should print out same word used for fillblank
+    try{
+        const word = await fillblank.WordToday();
+        console.log(word);
+    }
+    catch(e){
+        console.log(e);
+    }
+
+}
+
 
 
 
@@ -144,3 +166,4 @@ function spellCheck3(){
 // testUsers();
 // spellCheck2();
 // spellCheck3();
+//testFillBlank();
