@@ -9,21 +9,24 @@
                   <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
     
                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Payment Portal</p>
-        <form action="/payment" method="POST" class="user-payment">
-        <!-- If the user is not authenticaed, it will render a view with a login form. The form will contain two inputs, one for username and one for password. The form will be used to submit a POST request to the /login route on the server and must have an id of login-form. The input for the username must have a name/id of username; the input for the password must have name/id of password and should be an input type of password.-->
-            <label for="cname">Name on Card</label>
-             <input id = "name"  class="cardnumber_input" placeholder="Enter name on card" value = "{{password}}" name="name" required minlength="2">
-            <label for="cname">Card Number</label>
-             <input id = "cardnumber"  class="cardnumber_input" placeholder="Enter Card Number (must have at least 15 characters)" value = "{{password}}" name="cardnumber" required maxlength="16">
+        <form action="/payment" method="POST" id="payment-form" class="user-payment">
+            <label for="cnameInput">Name on Card</label>
+             <input id = "cnameInput"  class="cardnumber_input" placeholder="Enter name on card" name="cnameInput" required minlength="2">
+            <label for="cnumInput" id="cnumInput">Card Number</label>
+             <input id = "cnumInput"  class="cardnumber_input" placeholder="Enter Card Number (must have at least 15 characters)" name="cnumInput" required maxlength="16">
             <br>
-            <label for="cname">CVC</label>
-             <input id = "cardnumberCVC" class="cardnumber_input" placeholder="Enter CVC" value = "{{password}}" name="cardnumberCVC" >
+            <label for="cardnumberCVC">CVC</label>
+             <input id = "cardnumberCVC" class="cardnumber_input" placeholder="Enter CVC" name="cardnumberCVC" required maxlength="3">
             <br>
-            <label for="cname">Exp. Date</label>
-             <input id = "cardnumberExp"  class="cardnumber_input" placeholder="Enter Exp. Date" value = "{{password}}" name="password" required maxlength="6">
+            <label for="cardnumberExp">Exp. Date</label>
+             <input id = "cardnumberExp"  class="cardnumber_input" placeholder="Enter Exp. Date" name="cardnumberExp" required maxlength="7"> 
             {{!-- </div> --}}
-            <button type="submit" class="paymentsubmission">Pay</button>
+            {{#if err}}
+                        <br>
+                        <p class="err">{{message}}</p>
+                        {{/if}}
 
+            <button type="submit" class="paymentsubmission">Pay</button>
         </div>
         </form>
                   </div>
@@ -35,5 +38,5 @@
         </div>
   
 
-
+</main>
     </article>

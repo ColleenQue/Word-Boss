@@ -23,6 +23,7 @@ let exportedMethods = {
         choices = this.shuffle(choices);
         return [questionObj.word, curr_definition, choices];
     }
+    
 };
 
 module.exports = exportedMethods;

@@ -39,6 +39,13 @@ let exportedMethod=
             return { wordInserted: true };
         }
 
+    },
+
+    async getAllWords(user){
+        const lwordsCollections=await learnWords();
+        const findWords=await lwordsCollections.findOne({username:user})
+        //console.log(findWords);
+        return findWords;
     }
 
 }

@@ -7,7 +7,7 @@ router.get('', async (req, res) => {
         res.render('pages/home', {login:true,title:"Home"});
     }
     else{
-        res.render('pages/home',{title:"Home" });
+        res.render('pages/home',{title:"Home"});
     }
 
 });
