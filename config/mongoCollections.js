@@ -19,5 +19,6 @@ const getCollectionFn = (collection) => {
 module.exports = {
   myWords: getCollectionFn('myWords'),
   users: getCollectionFn('users'),
-  fillWords: getCollectionFn('fillWords')
+  fillWords: getCollectionFn('fillWords'),
+  learnedWords: getCollectionFn('learnedWords')
 };
