@@ -28,7 +28,7 @@ router.post('',async(req,res)=>{
             res.render('pages/fillblank',{title: "Fill in the Blank",partOne:theWord.firstHalf,partTwo:theWord.secondHalf,right:"You've inputed the right word!",login:true});
         }
         else{
-            res.render('pages/fillblank',{title: "Fill in the Blank",partOne:theWord.firstHalf,partTwo:theWord.secondHalf,wrong:"You've inputed the wrong word!",login:true});
+            res.render('pages/fillblank',{title: "Fill in the Blank",partOne:theWord.firstHalf,partTwo:theWord.secondHalf,wrong:"You've inputed the wrong word!",correctW:theWord.word,login:true});
         }
     }catch(e){
         res.status(400).render('pages/fillblank',{title: "Fill in the Blank",partOne:theWord.firstHalf,partTwo:theWord.secondHalf,login:true});
