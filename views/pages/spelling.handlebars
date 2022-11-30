@@ -1,23 +1,36 @@
+
 <body>
+
     <div class="spelling-main">
         <div class="spelling_body">
+            {{!--
+            <script>
+
+            </script> --}}
             {{#if correct}}
             <p>You got it!</p>
             <a class="nav-link" href="/spelling">Click here to spell again</a>
-            {{else}}        
+            {{else}}
+            
             {{#if incorrect}}
             <p>You're almost there!</p>
             <p> The word is: {{word}}</p>
             <a class="nav-link" href="/spelling">Click here to try again</a>
             {{else}}
+
             <p> Definition of Word: {{definition}}</p>
+
             <form method="POST" action="/spelling" id="user-log-in">
 
                 <input class="spellingInput" type="text" name="word" maxlength="12">
                 <button type="button-spelling"> &check; </button>
             </form>
+
             {{/if}}
             {{/if}}
+
+
+
         </div>
     </div>
 </div>
