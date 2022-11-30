@@ -33,6 +33,7 @@ router.post('/', async (req, res) => {
     if(search == correct){
         const getUser = await user.findUser(req.session.user);
         let counter = getUser.correct + 1;
+
         if(getUser.hasOwnProperty('correct')){
             const updated = await user.updateUser(getUser.username, getUser.password, getUser.email, counter);
             //console.log(updated);
@@ -67,5 +68,4 @@ router.post('', async (req, res) => {
         return;
       }
 })
-
 module.exports = router;
