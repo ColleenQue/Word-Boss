@@ -8,6 +8,7 @@ const paymentRoutes=require('./payment');
 const { propfind } = require('./login');
 const spellingRoutes = require('./spelling');
 const fillBlankRoutes=require('./fillblank');
+const logoutRoutes = require('./logout');
 const leaderRoutes = require('./leader');
 
 const constructorMethod = (app) => {
@@ -20,6 +21,7 @@ const constructorMethod = (app) => {
   app.use('/spelling',spellingRoutes);
   app.use('/payment', paymentRoutes);
   app.use('/fillblank',fillBlankRoutes);
+  app.use('/logout',logoutRoutes);
   app.use('/leader',leaderRoutes);
   app.use('*', (req, res) => {
     res.redirect('/home');
