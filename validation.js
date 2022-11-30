@@ -164,5 +164,13 @@ module.exports={
         if (!num) throw 'You must provide an id to search for';
         if(!Number.isInteger(num)) throw 'you must provide a string';
         return num;
+      },
+      checkWord(word){
+        let valid=/^[a-zA-Z]+$/.test(word);
+        if(valid){
+            return word
+        }else{
+            throw 'The word is not a valid word'
+        }
       }
 }
