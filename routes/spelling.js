@@ -3,6 +3,7 @@ const vocab = require('../data/vocab');
 const spelling = require('../data/spelling')
 const progress = require('../data/progress');
 const express = require('express');
+const lWords=require('../data/learnedWords');
 const router = express.Router();
 
 //Middleware
@@ -47,6 +48,7 @@ router.post('', async (req, res) => {
         correct = spelling.spellCheck(answer,word);
         if(correct){
           //update progress
+          lWords.addWord(req.session.user,answer);
           progress.updateProgress(username,20);
         }
         else{
