@@ -33,23 +33,16 @@ router.post('/', async (req, res) => {
     if(search == correct){
         const getUser = await user.findUser(req.session.user);
         let counter = getUser.correct + 1;
-        updateUser(getUser.username, getUser.password, getUser.email, counter);
-        console.log(getUser);
+        if(getUser.hasOwnProperty('correct')){
+            const updated = await user.updateUser(getUser.username, getUser.password, getUser.email, counter);
+            //console.log(updated);
+        }
         return res.render('pages/correct');
     }
     else{
         return res.render('pages/incorrect')
     }
-        definition : question[0],
-        choice1 : question[1][0],
-        choice2 : question[1][1],
-        choice3 : question[1][2],
-        choice4 : question[1][3],
-        login:true,
-        title:"quiz"
-    });
-
-})
+});
 router.post('', async (req, res) => {
 
 
