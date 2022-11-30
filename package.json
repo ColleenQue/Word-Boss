@@ -30,7 +30,7 @@
     "handlebars": "^4.7.7",
     "mongodb": "^4.10.0",
     "nopt": "^6.0.0",
-    "sweetalert2": "^11.5.1",
+    "sweetalert2": "^11.4.8",
     "validator": "^13.7.0"
   }
 }
