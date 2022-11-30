@@ -1,3 +1,4 @@
+const validate = require("../validation");
 function checkStringHasSpecialChar(str){
     let specialChar= /[`@#$%^&*()_+\-=\[\]{}"\\|<>\/~]/;
     if(specialChar.test(str)){
@@ -29,29 +30,31 @@ function checkStringHasNumbers(str){
 //if VALIDATECreditCard ==false Then we can display the error message
 //credit card can start with 0
 //Only can accept Visa/MasterCard, and Discover
+
+
 function validateCreditCard(str){
     if (str == undefined){
-        return false;
+        throw 'Must provide valid redit card';
     }
-    if (checkStingHasNumbers(str) != true){
-        return false;
+    if (checkStringHasNumbers(str) != true){
+        throw 'Credit card numbers must be provided.';
     }
     if (str.length > 16 || str.length < 15){
-        return false;
+        throw 'Not valid input';
     }
-    
+    return true;
 }
-
 function validateCreditCardCVC(str){
     if (str == undefined){
-        return false;
+        throw 'No CVC given';
     }
-    if (checkStingHasNumbers(str) != true){
-        return false;
+    if (checkStringHasNumbers(str) != true){
+        throw 'CVC not correct format';
     }
     if (str.length != 3){
-        return false;
+        throw 'CVC not correct format';
     }
+    return str;
 }
 
 function validateDate(date){
@@ -68,8 +71,8 @@ function validateDate(date){
     }
     listeddate = date.trim().split("/");
 
-    if (listeddate.length != 3){
-        throw 'Invalid format Not in : month, day, year';
+    if (listeddate.length != 2){
+        throw 'Invalid format Not in : month, year';
     }
     let month = parseInt(listeddate[0]);
     let year = parseInt(listeddate[1]);
@@ -78,8 +81,8 @@ function validateDate(date){
     let currentYear = new Date()
     maxyear = currentYear.getFullYear();
     // console.log(maxyear);
-    if (year < currentYear || year > maxyear+5){
-        throw 'The expiration date is less than right now.';
+    if (year < currentYear.getFullYear() || year > maxyear+5){
+        throw 'The expiration date is invalid';
     }
     if (month < 1 || month > 12){
         throw 'No month less than 01 and no more than 12 months';
@@ -88,25 +91,26 @@ function validateDate(date){
 
 }
 
+
 function validateCreditCardExpirationDate(str){
     if (str == undefined){
-        return false;
+        throw 'No date given';
     }
-    if (checkStingHasNumbers(str) != true){
-        return false;
+    if (checkStringHasNumbers(str) != true){
+        throw 'Invalid format ExpirationDate 05/2022';
     }
-    if (str.length > 6 || str.length < 6){
-        return false;
+    if (str.length > 7 || str.length < 7){
+        throw 'Invalid format ExpirationDate  05/2022';
     }
     validateDate(str);
-    return true;
+    return str;
 }
 
 function validateCreditCardPostalCode(str){
     if (str == undefined){
         return false;
     }
-    if (checkStingHasNumbers(str) != true){
+    if (validate.checkStringHasNumbers(str) != true){
         return false;
     }
     if (str.length > 5 || str.length<5){
