@@ -43,7 +43,7 @@ module.exports={
  
         cname=cname.split(" ");
         if (cname.length < 2){
-            throw 'One of the castMember only provided their firstName';
+            throw 'Name invalid';
         }
         if (cname.length > 2){
             throw 'Not valid input';
@@ -56,39 +56,18 @@ module.exports={
         }
         return cname;
       },
-      checkStringHasNumbers(str){
-        let numbers= /[0-9]/;
-        if(numbers.test(str)){
-            return true;
-        }
-        else{
-            return false;
-        }
-    },
-      validateCreditCard(str){
-        if (str == undefined){
-            throw 'Must provide valid values';
-        }
-        if (checkStingHasNumbers(str) != true){
-            throw 'Numbers must be provided.';
-        }
-        if (str.length > 16 || str.length < 15){
-            throw 'Not valid input';
-        }
-        return str;
-    },
-    validateCreditCardPostalCode(str){
-        if (str == undefined){
-            throw 'Must provide valid values';
-        }
-        if (checkStingHasNumbers(str) != true){
-            throw 'Numbers must be provided.';
-        }
-        if (str.length > 5 || str.length<5){
-            throw 'Not valid input';
-        }
-        return str;
-    },
+    // validateCreditCardPostalCode(str){
+    //     if (str == undefined){
+    //         throw 'Must provide valid values';
+    //     }
+    //     if (checkStingHasNumbers(str) != true){
+    //         throw 'Numbers must be provided.';
+    //     }
+    //     if (str.length > 5 || str.length<5){
+    //         throw 'Not valid input';
+    //     }
+    //     return str;
+    // },
     validateDate(date){
         let listeddate="";
         //month/year
@@ -99,12 +78,12 @@ module.exports={
             throw 'Date is not in correct form';
         }
         if (!date.includes("/")){
-            throw 'Invalid format no /.';
+            throw 'Invalid format not in fomart: month/year';
         }
         listeddate = date.trim().split("/");
     
         if (listeddate.length != 3){
-            throw 'Invalid format Not in : month, day, year';
+            throw 'Invalid format Not in : month, year';
         }
         let month = parseInt(listeddate[0]);
         let year = parseInt(listeddate[1]);
@@ -120,34 +99,21 @@ module.exports={
             throw 'No month less than 01 and no more than 12 months';
         }
         return date;
-    
     },
-    validateCreditCardExpirationDate(str){
-        if (str == undefined){
-            throw 'No date given';
-        }
-        if (checkStingHasNumbers(str) != true){
-            throw 'Invalid format';
-        }
-        if (str.length > 6 || str.length < 6){
-            throw 'Invalid format';
-        }
-        validateDate(str);
-        return str;
-    },
-    validateCreditCardCVC(str){
-        if (str == undefined){
-            throw 'No CVC given';
-        }
-        if (checkStingHasNumbers(str) != true){
-            throw 'CVC not correct format';
-        }
-        if (str.length != 3){
-            throw 'CVC not correct format';
-        }
-        return str;
-    }
-      ,checkId(id){
+    // validateCreditCardExpirationDate(str){
+    //     if (str == undefined){
+    //         throw 'No date given';
+    //     }
+    //     if (checkStingHasNumbers(str) != true){
+    //         throw 'Invalid format';
+    //     }
+    //     if (str.length > 6 || str.length < 6){
+    //         throw 'Invalid format';
+    //     }
+    //     validateDate(str);
+    //     return str;
+    // },
+      checkId(id){
 
         if (!id) throw 'You must provide an id to search for';
         if (typeof id !== 'string') throw 'Id must be a string';
@@ -164,5 +130,13 @@ module.exports={
         if (!num) throw 'You must provide an id to search for';
         if(!Number.isInteger(num)) throw 'you must provide a string';
         return num;
+      },
+      checkWord(word){
+        let valid=/^[a-zA-Z]+$/.test(word);
+        if(valid){
+            return word
+        }else{
+            throw 'The word is not a valid word'
+        }
       }
 }
