@@ -45,6 +45,14 @@ router.post('/', async (req, res) => {
     else{
         return res.render('pages/incorrect')
     }
+    //     definition : question[0],
+    //     choice1 : question[1][0],
+    //     choice2 : question[1][1],
+    //     choice3 : question[1][2],
+    //     choice4 : question[1][3],
+    //     login:true,
+    //     title:"quiz"
+    // });
 
 })
 router.post('', async (req, res) => {
