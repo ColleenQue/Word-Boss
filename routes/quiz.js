@@ -68,7 +68,6 @@ router.post('/', async (req, res) => {
     //     title:"quiz"
     // });
 
-})
 router.post('', async (req, res) => {
 
 
