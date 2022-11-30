@@ -23,8 +23,7 @@ router.get('/', async (req, res) => {
         choice1 : question[2][0],
         choice2 : question[2][1],
         choice3 : question[2][2],
-        choice4 : question[2][3],
-        login:true
+        choice4 : question[2][3]
     });
 
 })
@@ -50,8 +49,7 @@ router.post('/', async (req, res) => {
                 choice1 : question[2][0],
                 choice2 : question[2][1],
                 choice3 : question[2][2],
-                choice4 : question[2][3],
-                login:true
+                choice4 : question[2][3]
             });
         }
     }
