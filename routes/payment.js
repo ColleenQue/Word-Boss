@@ -5,45 +5,47 @@ const validation=require('../validation');
 
 
 router.get('', async (req, res) => {
-
-  res.render('pages/payment', {});
-
-});
-
-router.post('/', async (req, res) => {
+  if (req.session.user){
+    return res.render('pages/payment', {login:true,title:"payment"});
     
-  let cname = req.body.cname;
-  let cardnumber = req.body.cardnumber;
+  }
+  //check if there is a user logined in if not go to login
+  else {
+    return res.render('pages/login', {title: "Login"});
+  }
+});
+router.post('/', async (req, res) => {
+
+  //check all inputs
+  let cname = req.body.cnameInput;
+  let cardnumber = req.body.cnumInput;
   let cvc=req.body.cardnumberCVC;
   let cardnumberExp=req.body.cardnumberExp;
-  let creditCardPostalCode=req.body.creditCardPostalCode;
-  let result;
   try {
-    cname= validation.checkCname(req.body.cname);
-    cardnumber = validation.validateCreditCard(req.body.cardnumber);
-    cvc = validation.validateCreditCardCVC(req.body.cardnumberCVC);
-    cardnumberExp=validation.validateCreditCardExpirationDate(cardnumberExp);
-    creditCardPostalCode=validation.validateCreditCardPostalCode(req.body.creditCardPostalCode);
-
-
-
-    result = await user.checkUser(username, password);
+    cname= validation.checkCname(req.body.cnameInput);
+    cardnumber = payment.validateCreditCard(req.body.cnumInput);
+    cvc = payment.validateCreditCardCVC(req.body.cardnumberCVC);
+    cardnumberExp=payment.validateCreditCardExpirationDate(cardnumberExp);
   }
+//page
   catch (e) {
-    res.status(400).render('pages/payment', { err: true, message: e ,title:"Log in"});
+    res.status(400).render('pages/payment', { err: true, message: e , login: true,title:"Payment"});
     return;
   }
+  //Credit card is valid
+  //IF credit card is valid the answer is shown
+  
+  res.redirect('/profile');
 
 
-  if (result.authenticated === true) {
-    req.session.user=username;
-    //res.render('pages/home', {login:true});
-    res.redirect('/home');
+  // if (result.authenticated === true) {
+  //   //res.render('pages/home', {login:true});
+  //   res.redirect('/profile');
 
-  }
-  else {
-    res.status(500).json({ error: "Internal Server Error" });
-  }
+  // }
+  // else {
+  //   res.status(500).json({ error: "Internal Server Error" });
+  // }
 
 })
 
