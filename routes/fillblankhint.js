@@ -36,7 +36,7 @@ router.post('',async(req,res)=>{
         }
         else{
             console.log("Child has INvalid payment");
-            res.render('pages/fillblank',{title: "Fill in the Blank", validPayment:false, partOne:theWord.firstHalf,partTwo:theWord.secondHalf, login:true});
+            res.render('pages/fillblank',{title: "Fill in the Blank", invalidPayment:true, partOne:theWord.firstHalf,partTwo:theWord.secondHalf, login:true});
         }
         // if(theWord.word==word){
         //     lWords.addWord(req.session.user,word);

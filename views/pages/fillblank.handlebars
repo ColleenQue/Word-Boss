@@ -16,10 +16,12 @@
             {{#if validPayment}}
             <p>The word begins with
                 {{smallhint}}</p>
-            {{#else}}
-            <p>The parent has not put in creditcard</p>
-            {{/else}}
+            {{!-- {{else}} --}}
+            
             {{/if}}
+            {{#if invalidPayment}}
+            <p>The parent has not put in creditcard</p>
+             {{/if}}
             
 
             {{#if wrong}}
