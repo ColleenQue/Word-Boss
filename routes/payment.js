@@ -15,7 +15,13 @@ router.get('', async (req, res) => {
     const allWordsL=await lWords.getAllWords(req.session.user);
     if(typeof(getUser.children)!="undefined"){
       // console.log('Hello1');
+      //payment TEMP FIX
+      if(allWordsL==null){
+        return res.render('pages/payment', {login:true,title:"payment", username: getUser.username, email: getUser.email,wordsLearned: allWordsL});
+    }else{
       return res.render('pages/payment', {login:true,title:"payment", username: getUser.username, email: getUser.email,wordsLearned: allWordsL.word});
+    }
+      //return res.render('pages/payment', {login:true,title:"payment", username: getUser.username, email: getUser.email,wordsLearned: allWordsL.word});
     }
     else {
       // console.log('Hello2');
@@ -76,7 +82,7 @@ router.post('/', async (req, res) => {
     return;
 
   }
-  return;
+  //return;
 
   // if (result.authenticated === true) {
   //   //res.render('pages/home', {login:true});
