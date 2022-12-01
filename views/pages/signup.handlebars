@@ -5,7 +5,6 @@
         <div class="card-body p-md-5">
           <div class="row justify-content-center">
             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
               <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
               <form method="POST" action="signup" id="signup-form" class="mx-1 mx-md-4">
@@ -14,9 +13,10 @@
                   <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                   <div class="form-outline flex-fill mb-0">
                     <input type="text" name="username" class="form-control" placeholder="Username"
-                      value="{{username}}" />
+                      value="{{username}}" required/>
                     <!-- <label class="form-label" for="form3Example1c">Your Name</label> -->
                   </div>
+                  <div class="required"></div>
                 </div>
 
                 <div class="d-flex flex-row align-items-center mb-4">
@@ -34,9 +34,10 @@
                       <span id="visibility1"><i class="fas fa-eye fa-lg me-3 fa-fw"></i></span>
                     </div>
                     <input type="password" id="password1" name="password1" class="form-control" placeholder="Password"
-                      value="{{password1}}" />
+                      value="{{password1}}" required/>
                     <!-- <label class="form-label" for="form3Example4c">Password</label> -->
                   </div>
+                  <div class="required"></div>
                 </div>
 
                 <div class="d-flex flex-row align-items-center mb-4">
@@ -46,17 +47,18 @@
                       <span id="visibility2"><i class="fas fa-eye fa-lg me-3 fa-fw"></i></span>
                     </div>
                     <input type="password" id="password2" name="password2" class="form-control"
-                      placeholder="Re-enter Password" value="{{password2}}">
+                      placeholder="Re-enter Password" value="{{password2}}" required>
                     <!-- <label class="form-label" for="form3Example4cd">Repeat your password</label> -->
                   </div>
+                  <div class="required"></div>
                 </div>
 
 
-                <p>Are you parent or child?</p>
+                <p class="pText">Are you parent or child?<p class="pAs">*</p></p>
                 <div class="d-flex flex-row align-items-center mb-4">
                   <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                   <div class="form-outline flex-fill mb-0">
-                    <input type="radio" name="identity" value="Parent" />
+                    <input type="radio" name="identity" value="Parent" required/>
                     <label>Parent</label>
                     <!-- <label class="form-label" for="form3Example4cd">Repeat your password</label> -->
                   </div>
@@ -108,6 +110,10 @@
   </div>
 
 </div>
+
+<style>
+    .required:after { content:" *"; color: red;}
+</style>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
