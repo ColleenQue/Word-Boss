@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 const progress = require("./data/progress");
 const fillblank=require("./data/fillblank");
 const paymentData=require("./data/payment");
@@ -17,10 +18,29 @@ async function testPayment(){
         console.log(paymentMethod);
     }
     catch(e){
+=======
+const users = require("./data/users");
+const leader = require("./data/leaderboard");
+
+const dbConnection = require('./config/mongoConnection');
+const data = require('./data');
+const leaderData = data.leader;
+
+async function testUsers(){
+    const db = await dbConnection.connectToDb();
+    await db.dropDatabase();
+
+    try{
+        let cock = await leaderData.sortChildren();
+        console.log(cock);
+
+    }catch(e){
+>>>>>>> Stashed changes
         console.log(e);
     }
     console.log("DONE");
     await dbConnection.closeConnection();
+<<<<<<< Updated upstream
 }
 
 testPayment();
@@ -48,3 +68,6 @@ async function testLWords(){
 
 testLWords();
 
+=======
+}
+>>>>>>> Stashed changes

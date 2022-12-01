@@ -40,13 +40,28 @@ router.post('/', async (req, res) => {
             const updated = await user.updateUser(getUser.username, getUser.password, getUser.email, counter);
             //console.log(updated);
         }
+<<<<<<< Updated upstream
         return res.render('pages/correct',{login:true});
+=======
+        return res.render('pages/correct');
+>>>>>>> Stashed changes
     }
     else{
         return res.render('pages/incorrect',{login:true});
     }
 });
+<<<<<<< Updated upstream
 
+=======
+    //     definition : question[0],
+    //     choice1 : question[1][0],
+    //     choice2 : question[1][1],
+    //     choice3 : question[1][2],
+    //     choice4 : question[1][3],
+    //     login:true,
+    //     title:"quiz"
+    // });
+>>>>>>> Stashed changes
 router.post('', async (req, res) => {
 
 
