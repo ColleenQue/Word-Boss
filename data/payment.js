@@ -1,4 +1,10 @@
 const validate = require("../validation");
+const mongoCollections=require("../config/mongoCollections");
+const users=mongoCollections.users;
+const paymentC = mongoCollections.payment;
+const validation=require("../validation");
+const account = require("./users")
+
 function checkStringHasSpecialChar(str){
     let specialChar= /[`@#$%^&*()_+\-=\[\]{}"\\|<>\/~]/;
     if(specialChar.test(str)){
@@ -36,13 +42,16 @@ function validateCreditCard(str){
     if (str == undefined){
         throw 'Must provide valid redit card';
     }
+    if (typeof str != 'string'){
+        throw 'Incorrect type'
+    }
     if (checkStringHasNumbers(str) != true){
         throw 'Credit card numbers must be provided.';
     }
     if (str.length > 16 || str.length < 15){
         throw 'Not valid input';
     }
-    return true;
+    return str;
 }
 function validateCreditCardCVC(str){
     if (str == undefined){
@@ -119,6 +128,70 @@ function validateCreditCardPostalCode(str){
     return true;
 }
 
+const createPayment = async(username, cname, cardnumber, cvc, cardnumberExp) => {
+    let cnameV=validate.checkCname(cname);
+    validateCreditCard(cardnumber);
+    validateCreditCardCVC(cvc);
+    validateCreditCardExpirationDate(cardnumberExp);
+    const userCollection=await users();
+    const user=await userCollection.findOne({username: username.toLowerCase()});
+    const paymentCollections= await paymentC();
+    console.log("validated payment awaited collection");
+    if(user == null|| user == undefined){
+        throw "Error: User is not registered"
+    }
+    //if child u can not create payment
+    // const Children=await account.getAllChildren();
+    // console.log(Children);
+    // let isChild=false;
+    // for (elem of Children){
+    //     console.log(elem.username);
+    //     if (elem.username == user){
+    //         isChild=true;
+    //     }
+    // }
+    // console.log(isChild);
+    // if (isChild==true){
+    //     throw 'Child can not create payment';
+    // // }
+    // console.log("hello");
+    const findUser2=await paymentCollections.findOne({username: username});
+    // console.log(findUser2);
+    if(findUser2 !=null){
+        console.log("founduser update Payment");
+            const updateinfo= await paymentCollections.updateOne({"username": username.toLowerCase()},{$set: {"cname": cnameV, "cardnumber": cardnumber, "cvc": cvc, "cardnumberExp": cardnumberExp} });
+            return { paymentInserted: true };
+    }
+    else{
+        // console.log("did not find user create Payment");
+        let CreatePayment = {
+            username: username,
+            cname: cnameV,
+            cardnumber: cardnumber,
+            cvc: cvc,
+            cardnumberExp: cardnumberExp
+        }
+        const insertInfo=await paymentCollections.insertOne(CreatePayment);
+        if (!insertInfo.acknowledged || !insertInfo.insertedId){
+            throw "Could not add payment";
+        }
+        return { paymentInserted: true };
+    }
+}
+const CheckParentHasPaymentfromChild = async (username) =>{
+    
+    const userCollection=await users();
+    const user=await userCollection.findOne({username: username.toLowerCase()});
+    const paymentuser=await paymentCollections.findOne({username: username});
+    if(paymentuser !=null){
+        return { paymentParent: true };
+    }
+
+
+
+}
+
+
 module.exports ={
     checkStringHasNumbers,
     validateCreditCard,
@@ -126,6 +199,6 @@ module.exports ={
     validateDate,
     validateCreditCardExpirationDate,
     validateCreditCardPostalCode,
-
-
+    createPayment,
+    CheckParentHasPaymentfromChild,
 }

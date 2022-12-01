@@ -9,6 +9,11 @@
                     <div class="card-header bg-transparent text-center">
                       <img class="profile_img" src="https://www.ddvelderlaw.com/wp-content/uploads/2019/07/storyblocks-brain-training-with-dumbbells-and-glasses-vector_rA-6CycLz_thumb.jpg" alt="student dp">
                       <h3>{{username}}</h3>
+                      {{#if isParent}}
+        <a href="/payment" class="btn btn-primary">Go to Payment</a>
+      
+        
+        {{/if}}
                     </div>
                     <div class="card-body">
                     <!--
@@ -20,21 +25,40 @@
                       <div class="card-body pt-0">
                         <table class="table table-bordered">
                             {{#each child}}
+                            <tr>
                             <th width="30%">Child</th>
                             <td>{{this.username}}</td>
+                            </tr>
                             {{/each}}
                         </table>
+                      </div>
+                      <div class="card-body pt-0">
+                        <p>Child Words Learned</p>
+                         {{#each childLearn}}
+                        <table class="table table-bordered">
+                            <tr>
+                            <th width="30%">{{this.username}} Words Learned</th>
+                            </tr>
+                            {{#each this.word}}
+                            <tr>
+                            <td >{{this}}</td>
+                            </tr>
+                            {{/each}}
+                        </table>
+                        {{/each}}
                       </div>
                       {{/if}}
                     </div>
                     <div class="card-body pt-0">
                       <table class="table table-bordered">
-                        <th>Words Learned</th>
+                        <th>Your Words Learned</th>
+                        {{#if learned}}
                         {{#each wordsLearned}}
                         <tr>
                            <td>{{this}}</td>
                         </tr>
                         {{/each}}
+                        {{/if}}
                       </table>
                     </div>
                 </div>

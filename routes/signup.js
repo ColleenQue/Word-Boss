@@ -15,8 +15,13 @@ router.post('',async(req,res) =>{
         let username=validation.checkUserName(req.body.username);
         let password1=validation.checkPassWord(req.body.password1);
         let password2=validation.checkPassWord(req.body.password2);
+        let isValid;
         if(!(password1==password2)) throw "Error: Passwords do not match up"
-        let isValid=await emailValidator.validate(req.body.email);
+        if(req.body.email==""){
+            isValid=true;
+        }else{
+            isValid=await emailValidator.validate(req.body.email);
+        }
         if (isValid.valid==false)
         {
             res.status(400).render('pages/signup',{err: true, message: "Error: Email is not valid", title: "Sign up", not_logged_in: true});
