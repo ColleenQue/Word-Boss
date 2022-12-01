@@ -25,21 +25,40 @@
                       <div class="card-body pt-0">
                         <table class="table table-bordered">
                             {{#each child}}
+                            <tr>
                             <th width="30%">Child</th>
                             <td>{{this.username}}</td>
+                            </tr>
                             {{/each}}
                         </table>
+                      </div>
+                      <div class="card-body pt-0">
+                        <p>Child Words Learned</p>
+                         {{#each childLearn}}
+                        <table class="table table-bordered">
+                            <tr>
+                            <th width="30%">{{this.username}} Words Learned</th>
+                            </tr>
+                            {{#each this.word}}
+                            <tr>
+                            <td >{{this}}</td>
+                            </tr>
+                            {{/each}}
+                        </table>
+                        {{/each}}
                       </div>
                       {{/if}}
                     </div>
                     <div class="card-body pt-0">
                       <table class="table table-bordered">
-                        <th>Words Learned</th>
+                        <th>Your Words Learned</th>
+                        {{#if learned}}
                         {{#each wordsLearned}}
                         <tr>
                            <td>{{this}}</td>
                         </tr>
                         {{/each}}
+                        {{/if}}
                       </table>
                     </div>
                 </div>

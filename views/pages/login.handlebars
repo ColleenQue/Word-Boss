@@ -1,68 +1,56 @@
-<article>
-  <main>
-    <div class="container h-100" style="margin-top:3em">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-lg-12 col-xl-11">
-          <div class="card text-black" style="border-radius: 25px;">
-            <div class="card-body p-md-5">
-              <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+<div class="container h-100" style="margin-top:3em">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-lg-12 col-xl-11">
+      <div class="card text-black" style="border-radius: 25px;">
+        <div class="card-body p-md-5">
+          <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Log In</p>
-                  <form action="/login" method="POST" class="user-log-in">
-                    <!-- If the user is not authenticaed, it will render a view with a login form. The form will contain two inputs, one for username and one for password. The form will be used to submit a POST request to the /login route on the server and must have an id of login-form. The input for the username must have a name/id of username; the input for the password must have name/id of password and should be an input type of password.-->
+              <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login In</p>
 
+              <form method="POST" action="login" id="login-form" class="mx-1 mx-md-4">
 
-                    <div id="login-form" class="myform">
-                      <div class="create_account">
-                        <p><a href="/signup">Create an account instead</a></p>
-                      </div>
-                      <hr>
-                      {{#if dbErr}}
-                      <p id="server-error">{{error}}</p>
-                      {{/if}}
-
-                      <p class="username-err"></p>
-
-                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                      {{!-- <label for="username" class="username-label">Username</label> --}}
-                      <input id="username" type="text" class="username-input"
-                        placeholder="Enter username (must have at least 2 characters)" value="{{username}}"
-                        name="username" required minlength="2">
-
-
-                      <p class="psw-err"></p>
-                      <div id="positionEye2">
-                        <span id="visibility3"><i class="fas fa-eye fa-lg me-3 fa-fw"></i></span>
-                      </div>
-                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                      {{!-- <label for="psw" class="psw-label">Password</label> --}}
-                      <input id="password" type="password" class="psw-input"
-                        placeholder="Enter Password (must have at least 8 characters)" value="{{password}}"
-                        name="password" required minlength="8">
-
-                      {{!-- <div> --}}
-
-                        {{#if err}}
-                        <br>
-                        <p class="err">{{message}}</p>
-                        {{/if}}
-                        <div class="login_btn">
-                          <button type="submit" class="btn btn-dark btn-lg">Log In</button>
-                        </div>
-
-                        {{!--
-                      </div> --}}
-                    </div>
-                  </form>
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                  <div class="form-outline flex-fill mb-0">
+                    <input type="text" name="username" class="form-control" placeholder="Username"
+                      value="{{username}}" />
+                    <!-- <label class="form-label" for="form3Example1c">Your Name</label> -->
+                  </div>
                 </div>
-              </div>
+
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                  <div class="form-outline flex-fill mb-0">
+                    <div id="positionEye3">
+                      <span id="visibility3"><i class="fas fa-eye fa-lg me-3 fa-fw"></i></span>
+                    </div>
+                    <input type="password" id="password3" name="password3" class="form-control" placeholder="Password"
+                      value="{{password3}}" />
+                    <!-- <label class="form-label" for="form3Example4c">Password</label> -->
+                  </div>
+                </div>
+                
+                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                  <button type="submit" class="btn btn-dark btn-lg">Login</button>
+                </div>
+              </form>
+
+              {{#if err}}
+              <p class="error"> {{message}}</p>
+              {{/if}}
+
             </div>
+
           </div>
         </div>
       </div>
     </div>
+  </div>
 
+</div>
 
-
-</article>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+   
+ <script src="/public/scripts/ajax.js"></script>
