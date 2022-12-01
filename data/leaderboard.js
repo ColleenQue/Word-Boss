@@ -1,33 +1,27 @@
-const mongoCollections = require('../config/mongoCollections');
-const userCollection= mongoCollections.users;
+const Collections = require('../config/mongoCollections');
+const userCollection= Collections.users;
 const {ObjectId} = require('mongodb');
-<<<<<<< Updated upstream
-const user = require('./users');
-=======
 const user_js = require('./users');
->>>>>>> Stashed changes
 
 // sort children by leaderboard
-module.exports ={
-async sortChildren (){
-    const childCollection = await userCollection();
+const sortChildren = async (
+) => {
+    let childList = user_js.getAllChildren();
     // gets all the user correct scores
-<<<<<<< Updated upstream
- 
-    const childList = await childCollection.find().sort({correct:-1}).toArray();
-=======
     let compareCorrect= (a,b) => {
         return b.correct - a.correct
     };
 
-    childList.sort(compareCorrect);
->>>>>>> Stashed changes
+    childList.sort(compareCorrect); 
 
-    console.log(childList);
     let result = [];
-    for(let i = 0; i < 3; i++){
+    for(let i = 0; i < 5; i++){
         result.push(childList[i]);
     }
+    console.log(result);
     return result;
 }
-}
+
+module.exports = {
+    sortChildren
+};
