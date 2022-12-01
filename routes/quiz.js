@@ -35,38 +35,17 @@ router.post('/', async (req, res) => {
     if(search == correct){
         const getUser = await user.findUser(req.session.user);
         let counter = getUser.correct + 1;
-
+        lWords.addWord(req.session.user,search);
         if(getUser.hasOwnProperty('correct')){
             const updated = await user.updateUser(getUser.username, getUser.password, getUser.email, counter);
             //console.log(updated);
         }
-        return res.render('pages/correct');
-        try{
-            lWords.addWord(req.session.user,search);
-            return res.render('pages/correct');
-        }catch(e){
-            res.status(400).render('pages/quiz', {
-                definition : question[1],
-                choice1 : question[2][0],
-                choice2 : question[2][1],
-                choice3 : question[2][2],
-                choice4 : question[2][3],
-                login:true
-            });
-        }
+        return res.render('pages/correct',{login:true});
     }
     else{
-        return res.render('pages/incorrect')
+        return res.render('pages/incorrect',{login:true});
     }
 });
-    //     definition : question[0],
-    //     choice1 : question[1][0],
-    //     choice2 : question[1][1],
-    //     choice3 : question[1][2],
-    //     choice4 : question[1][3],
-    //     login:true,
-    //     title:"quiz"
-    // });
 
 router.post('', async (req, res) => {
 
