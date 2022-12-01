@@ -31,6 +31,9 @@ Click on the sign up or log in buttons on the upper right corner.
 1. Provide your valid username and password
 2. If you successfully sign in, you will see the home page with no sign up/log in button. They are replaced by 'Profile' 
 
+#### Log Out
+1. You are able to log out of your current account if you need to log into other accounts. 
+
 #### Passwords
 All passwords are bcrypt hashed, offering save and secure user usability.
 
@@ -52,7 +55,7 @@ Play a game where there would be blank spaces where you would need to fill in th
 Child has access to help to make the game easier.
 
 #### Multiple Choice Feature
-Take a multiple choice quiz. Parents and Children are able to take a multiple choice quiz that shows whether they get it correct or not. If a child gets it correct, their score then gets incremented.
+Take a multiple choice quiz. Parents and Children are able to take a multiple choice quiz that shows whether they get it correct or not. If a child gets it correct, their score then gets incremented. Note that the correct and level only account for the number of correct answers to multiple choice.
 
 ### Leaderboard Feature
 See who has answered the most amount of questions correctly. Child users will be compared to other child users. This score is taken from the Multiple Choice Quiz.
