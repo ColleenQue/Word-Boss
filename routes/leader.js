@@ -3,15 +3,19 @@ const axios = require('axios');
 const router = express.Router();
 const data = require('../data');
 const path = require('path');
-const leaderData = data.leaderboard;
+const leaderData = require('../data/leaderboard');
+const { truncateSync } = require('fs');
 
 router.get('', async (req, res) => {
-    if(req.session.user){
+    let login = req.session.user;
+    try{
         const leaderList = await leaderData.sortChildren();
-        res.render('pages/leaderboard', {login:true,title:"Leaderboard", leaderList: leaderList});
+        console.log(leaderList);
+        console.log(leaderList[0].username);
+        return res.render('pages/leaderboard', {login:login,title:"Leaderboard", leaders: leaderList});
     }
-    else{
-        throw 'Error: sussy balls';
+    catch(e){
+        return res.render('pages/error', {error:e});
     }
 
 });

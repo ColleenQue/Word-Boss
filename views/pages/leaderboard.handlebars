@@ -1,8 +1,12 @@
-{{#if leaderList.length}}
-<ul>
-    {{#each leaderList}}
-    <li>{{leaderList.username}} : {{leaderList.correct}}: 
-    </li>
-    {{/each}}
-</ul>
+<div class = "leaderContainer">
+{{#if leaders.length}}
+    <table class="leaderTable">
+        <th><h1>Leader Board</h1></th>
+        {{#each leaders}}
+        <tr>
+            <td>{{username}}:{{correct}}</td>
+        </tr>
+        {{/each}}
+    </table>
 {{/if}}
+</div>
