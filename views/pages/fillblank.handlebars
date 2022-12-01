@@ -1,29 +1,28 @@
-
-    <div class="spelling-main">
-        <div class="spelling_body">
-            <!--
-            <form method="POST" action="/fillblank" id="user-log-in">
-                <div style="display: inline-block">
-                    <input id="userWord"></input>
-                </div>
-            <p>{{defInPart}}</p>
-            </form>
-            -->
-            {{#if wrong}}
-            <p>{{wrong}}</p>
-            <p>The correct word is {{correctW}}.</p>
-            {{/if}}
-            {{#if right}}
-            <p>{{right}}</p>
-            {{/if}}
-            <form method="POST" action="/fillblank" id="fillblank">
-            <p>Sentence:</p>
-            <p style="display:inline">{{partOne}}</p>
-            <input name="word">
-            <p style="display:inline">{{partTwo}}</p>
-            <br>
-            <br>
-            <button type="submit">Submit</button>
-            </form>
-        </div>
+<div class="spelling-main">
+    <div class="spelling_body">
+        <!--
+        <form method="POST" action="/fillblank" id="user-log-in">
+            <div style="display: inline-block">
+                <input id="userWord"></input>
+            </div>
+        <p>{{defInPart}}</p>
+        </form>
+        -->
+        {{#if wrong}}
+        <p>{{wrong}}</p>
+        <p>The correct word is {{correctW}}.</p>
+        {{/if}}
+        {{#if right}}
+        <p>{{right}}</p>
+        {{/if}}
+        <form method="POST" action="/fillblank" id="fillblank">
+        <p>Sentence:</p>
+        <p style="display:inline">{{partOne}}</p>
+        <input name="word">
+        <p style="display:inline">{{partTwo}}</p>
+        <br>
+        <br>
+        <button type="submit">Submit</button>
+        </form>
     </div>
+</div>
