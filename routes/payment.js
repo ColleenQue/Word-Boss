@@ -34,6 +34,10 @@ router.post('/', async (req, res) => {
   let cardnumber = req.body.cnumInput;
   let cvc=req.body.cardnumberCVC;
   let cardnumberExp=req.body.cardnumberExp;
+  // console.log(cname);
+  // console.log(typeof cardnumber);
+  // console.log(typeof cardnumberCVC);
+  // console.log(typeof cardnumberExp)
   try {
     cname= validation.checkCname(req.body.cnameInput);
     cardnumber = payment.validateCreditCard(req.body.cnumInput);
@@ -48,8 +52,29 @@ router.post('/', async (req, res) => {
   //Credit card is valid
   //IF credit card is valid the answer is shown
   
-  res.redirect('/profile');
+  try{
+    let payment1=payment.createPayment(req.session.user, cname,cardnumber,cvc, cardnumberExp);
+    if ((await payment1).paymentInserted == true) {
+      res.redirect('profile');
+      return;
+    }
+    else {
+      res
+        .status(500)
+        .render("userRegister", {
+          error: "Internal Server Error",
+          title: "Register",
+        });
+      // res.status(500).json({error: "Internal Server Error"});
+      return;
+    }
 
+  } catch(e){
+    res.status(400).render('pages/payment', { err: true, message: e , login: true,title:"Payment"});
+    return;
+
+  }
+  return;
 
   // if (result.authenticated === true) {
   //   //res.render('pages/home', {login:true});

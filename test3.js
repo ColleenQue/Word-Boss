@@ -9,7 +9,7 @@ async function testPayment(){
 
 
     try {
-        const paymentMethod = await paymentData.createPayment("dtran", "Dylan Tra", "1234567890123456", "333", "01/2023");
+        const paymentMethod = await paymentData.createPayment("parent", "Daneil Tan", "2222567890123456", "666", "03/2023");
         console.log(paymentMethod);
     }
     catch(e){

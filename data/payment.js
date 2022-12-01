@@ -51,7 +51,7 @@ function validateCreditCard(str){
     if (str.length > 16 || str.length < 15){
         throw 'Not valid input';
     }
-    return true;
+    return str;
 }
 function validateCreditCardCVC(str){
     if (str == undefined){
@@ -129,7 +129,7 @@ function validateCreditCardPostalCode(str){
 }
 
 const createPayment = async(username, cname, cardnumber, cvc, cardnumberExp) => {
-    cname=validate.checkCname(cname);
+    let cnameV=validate.checkCname(cname);
     validateCreditCard(cardnumber);
     validateCreditCardCVC(cvc);
     validateCreditCardExpirationDate(cardnumberExp);
@@ -159,17 +159,17 @@ const createPayment = async(username, cname, cardnumber, cvc, cardnumberExp) => 
     // console.log(findUser2);
     if(findUser2 !=null){
         console.log("founduser update Payment");
-            const updateinfo= await paymentCollections.updateOne({"username": username.toLowerCase()},{$set: {"cname": cname, "cardnumber": cardnumber, "cvc": cvc, "cardnumberExp": cardnumberExp} });
+            const updateinfo= await paymentCollections.updateOne({"username": username.toLowerCase()},{$set: {"cname": cnameV, "cardnumber": cardnumber, "cvc": cvc, "cardnumberExp": cardnumberExp} });
             return { paymentInserted: true };
     }
     else{
         // console.log("did not find user create Payment");
         let CreatePayment = {
             username: username,
-            cname: cname,
+            cname: cnameV,
             cardnumber: cardnumber,
             cvc: cvc,
-            cardnumberExp
+            cardnumberExp: cardnumberExp
         }
         const insertInfo=await paymentCollections.insertOne(CreatePayment);
         if (!insertInfo.acknowledged || !insertInfo.insertedId){
@@ -178,6 +178,10 @@ const createPayment = async(username, cname, cardnumber, cvc, cardnumberExp) => 
         return { paymentInserted: true };
     }
 }
+// const getParent = async (username) =>{
+
+
+// }
 //
 
 module.exports ={
