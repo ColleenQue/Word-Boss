@@ -1,6 +1,6 @@
 # Team4-MOSS 
 
-Hi we are team Moss. Our goal is to create a website to help children learn about a new vocab word everyday. This can help children easily prepare for the SAT from an early age.
+Hi we are team Moss. Our goal is to create a website to help children learn about a new vocab word everyday. This can help children easily prepare for the SAT from an early age. 
 
 Using Javascript and MongoDB. 
 
@@ -12,6 +12,8 @@ Clone the code into visual studio code.
 ``` npm i ``` to install packages
 
 ``` npm start ``` to start on local 3000
+
+## Security Feature
 
 ### To Sign up or Log in 
 Click on the sign up or log in buttons on the upper right corner. 
@@ -27,6 +29,13 @@ Click on the sign up or log in buttons on the upper right corner.
 1. Provide your valid username and password
 2. If you successfully sign in, you will see the home page with no sign up/log in button. They are replaced by 'Profile' 
 
+#### Passwords
+All passwords are bcrypt hashed, offering save and secure user usability.
+
+#### Payment Feature
+Allows only parent users to pay for a feature that allows all his/her children to see hints for fill in the blank.
+
+## Core Features
 
 ### To Explore Vocab Features
 
@@ -38,6 +47,13 @@ Play a game to check if you know how to spell the word!
 
 #### Fill In The Blank Feature
 Play a game where there would be blank spaces where you would need to fill in the right word!
+Child has access to help to make the game easier.
 
-### Profile Feature
-User opens a page where it displays all of the user's information.
+#### Multiple Choice Feature
+Take a multiple choice quiz. Parents and Children are able to take a multiple choice quiz that shows whether they get it correct or not. If a child gets it correct, their score then gets incremented.
+
+### Leaderboard Feature
+See who has answered the most amount of questions correctly. Child users will be compared to other child users. This score is taken from the Multiple Choice Quiz.
+
+## Profile Feature
+User opens a page where it displays all of the user's information. Within the website, parents are able to see their child's progess and see ho much they have improved. Parents can also see what words they have learned for the day.
