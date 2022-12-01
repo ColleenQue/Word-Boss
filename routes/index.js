@@ -10,6 +10,7 @@ const spellingRoutes = require('./spelling');
 const fillBlankRoutes=require('./fillblank');
 const logoutRoutes = require('./logout');
 const leaderRoutes = require('./leader');
+const fillBlankhintRoutes=require('./fillblankhint');
 
 const constructorMethod = (app) => {
   app.use('/login', loginRoute);
@@ -21,6 +22,7 @@ const constructorMethod = (app) => {
   app.use('/spelling',spellingRoutes);
   app.use('/payment', paymentRoutes);
   app.use('/fillblank',fillBlankRoutes);
+  app.use('/fillblankhint',fillBlankhintRoutes);
   app.use('/logout',logoutRoutes);
   app.use('/leader',leaderRoutes);
   app.use('*', (req, res) => {

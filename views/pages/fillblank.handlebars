@@ -1,28 +1,47 @@
-<div class="spelling-main">
-    <div class="spelling_body">
-        <!--
-        <form method="POST" action="/fillblank" id="user-log-in">
-            <div style="display: inline-block">
-                <input id="userWord"></input>
-            </div>
-        <p>{{defInPart}}</p>
-        </form>
-        -->
-        {{#if wrong}}
-        <p>{{wrong}}</p>
-        <p>The correct word is {{correctW}}.</p>
-        {{/if}}
-        {{#if right}}
-        <p>{{right}}</p>
-        {{/if}}
-        <form method="POST" action="/fillblank" id="fillblank">
-        <p>Sentence:</p>
-        <p style="display:inline">{{partOne}}</p>
-        <input name="word">
-        <p style="display:inline">{{partTwo}}</p>
-        <br>
-        <br>
-        <button type="submit">Submit</button>
-        </form>
+
+
+    <div class="spelling-main">
+        <div class="spelling_body">
+            <!--
+            <form method="POST" action="/fillblank" id="user-log-in">
+                <div style="display: inline-block">
+                    <input id="userWord"></input>
+                </div>
+            <p>{{defInPart}}</p>
+            </form>
+            -->
+
+            <form method="POST" action="/fillblankhint" id="fillblankhint">
+            <button type="submit">Hint?</button>
+            </form>
+            {{#if validPayment}}
+            <p>The word begins with
+                {{smallhint}}</p>
+            {{!-- {{else}} --}}
+            
+            {{/if}}
+            {{#if invalidPayment}}
+            <p>The parent has not put in creditcard</p>
+             {{/if}}
+            
+
+            {{#if wrong}}
+            <p>{{wrong}}</p>
+            <p>The correct word is {{correctW}}.</p>
+            {{/if}}
+            {{#if right}}
+            <p>{{right}}</p>
+            {{/if}}
+            <form method="POST" action="/fillblank" id="fillblank">
+            <p>Sentence:</p>
+            <p style="display:inline">{{partOne}}</p>
+            <input name="word">
+            <p style="display:inline">{{partTwo}}</p>
+            <br>
+            <br>
+            <button type="submit">Submit</button>
+            </form>
+        </div>
+
     </div>
 </div>

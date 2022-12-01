@@ -4,6 +4,8 @@ const users=mongoCollections.users;
 const paymentC = mongoCollections.payment;
 const validation=require("../validation");
 const account = require("./users")
+const bcrypt=require('bcrypt');
+const saltRounds=12;
 
 function checkStringHasSpecialChar(str){
     let specialChar= /[`@#$%^&*()_+\-=\[\]{}"\\|<>\/~]/;
@@ -156,10 +158,12 @@ const createPayment = async(username, cname, cardnumber, cvc, cardnumberExp) => 
     // // }
     // console.log("hello");
     const findUser2=await paymentCollections.findOne({username: username});
+    const cvcHashed=await bcrypt.hash(cvc,saltRounds);
+    const cardnumberHashed=await bcrypt.hash(cardnumber,saltRounds);
     // console.log(findUser2);
     if(findUser2 !=null){
         console.log("founduser update Payment");
-            const updateinfo= await paymentCollections.updateOne({"username": username.toLowerCase()},{$set: {"cname": cnameV, "cardnumber": cardnumber, "cvc": cvc, "cardnumberExp": cardnumberExp} });
+            const updateinfo= await paymentCollections.updateOne({"username": username.toLowerCase()},{$set: {"cname": cnameV, "cardnumber": cardnumberHashed, "cvc": cvcHashed, "cardnumberExp": cardnumberExp} });
             return { paymentInserted: true };
     }
     else{
@@ -167,14 +171,15 @@ const createPayment = async(username, cname, cardnumber, cvc, cardnumberExp) => 
         let CreatePayment = {
             username: username,
             cname: cnameV,
-            cardnumber: cardnumber,
-            cvc: cvc,
+            cardnumber: cardnumberHashed,
+            cvc: cvcHashed,
             cardnumberExp: cardnumberExp
         }
         const insertInfo=await paymentCollections.insertOne(CreatePayment);
         if (!insertInfo.acknowledged || !insertInfo.insertedId){
             throw "Could not add payment";
         }
+        
         return { paymentInserted: true };
     }
 }
@@ -182,9 +187,13 @@ const CheckParentHasPaymentfromChild = async (username) =>{
     
     const userCollection=await users();
     const user=await userCollection.findOne({username: username.toLowerCase()});
-    const paymentuser=await paymentCollections.findOne({username: username});
+    const paymentCollections= await paymentC();
+    const paymentuser=await paymentCollections.findOne({username: username.toLowerCase()});
     if(paymentuser !=null){
         return { paymentParent: true };
+    }
+    else {
+        return {paymentParent: false};
     }
 
 
