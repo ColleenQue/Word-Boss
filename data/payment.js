@@ -3,6 +3,7 @@ const mongoCollections=require("../config/mongoCollections");
 const users=mongoCollections.users;
 const paymentC = mongoCollections.payment;
 const validation=require("../validation");
+const account = require("./users")
 
 function checkStringHasSpecialChar(str){
     let specialChar= /[`@#$%^&*()_+\-=\[\]{}"\\|<>\/~]/;
@@ -127,20 +128,57 @@ function validateCreditCardPostalCode(str){
     return true;
 }
 
-const CreatePayment = async(cname, cardnumber, cvc, cardnumberExp) => {
+const createPayment = async(username, cname, cardnumber, cvc, cardnumberExp) => {
     cname=validate.checkCname(cname);
     validateCreditCard(cardnumber);
     validateCreditCardCVC(cvc);
     validateCreditCardExpirationDate(cardnumberExp);
-    const userCollections=await users();
-    const paymentC= await paymentC();
-    const findUser=await userCollections.findOne({username: username});
-    if(findUser == null){
+    const userCollection=await users();
+    const user=await userCollection.findOne({username: username.toLowerCase()});
+    const paymentCollections= await paymentC();
+    console.log("validated payment awaited collection");
+    if(user == null|| user == undefined){
         throw "Error: User is not registered"
     }
-    
-
+    //if child u can not create payment
+    // const Children=await account.getAllChildren();
+    // console.log(Children);
+    // let isChild=false;
+    // for (elem of Children){
+    //     console.log(elem.username);
+    //     if (elem.username == user){
+    //         isChild=true;
+    //     }
+    // }
+    // console.log(isChild);
+    // if (isChild==true){
+    //     throw 'Child can not create payment';
+    // // }
+    // console.log("hello");
+    const findUser2=await paymentCollections.findOne({username: username});
+    // console.log(findUser2);
+    if(findUser2 !=null){
+        console.log("founduser update Payment");
+            const updateinfo= await paymentCollections.updateOne({"username": username.toLowerCase()},{$set: {"cname": cname, "cardnumber": cardnumber, "cvc": cvc, "cardnumberExp": cardnumberExp} });
+            return { paymentInserted: true };
+    }
+    else{
+        // console.log("did not find user create Payment");
+        let CreatePayment = {
+            username: username,
+            cname: cname,
+            cardnumber: cardnumber,
+            cvc: cvc,
+            cardnumberExp
+        }
+        const insertInfo=await paymentCollections.insertOne(CreatePayment);
+        if (!insertInfo.acknowledged || !insertInfo.insertedId){
+            throw "Could not add payment";
+        }
+        return { paymentInserted: true };
+    }
 }
+//
 
 module.exports ={
     checkStringHasNumbers,
@@ -149,7 +187,5 @@ module.exports ={
     validateDate,
     validateCreditCardExpirationDate,
     validateCreditCardPostalCode,
-    CreatePayment,
-
-
+    createPayment,
 }
