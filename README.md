@@ -9,6 +9,8 @@ Using Javascript and MongoDB.
 
 Clone the code into visual studio code.
 
+``` node seed.js ``` to run the seed file
+
 ``` npm i ``` to install packages
 
 ``` npm start ``` to start on local 3000
