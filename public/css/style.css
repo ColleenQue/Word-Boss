@@ -295,14 +295,19 @@ img {
 }
 */
 
-#visibility1, #visibility2, #visibility3{
+#visibility1, #visibility2{
     position:absolute;
-    left:90%;
-    margin-top: 1.6%;
+    left:85%;
+    margin-top: 2.5%;
 }
 
+#visibility3{
+    position:absolute;
+    left:85%;
+    margin-top: 2.5%;
+}
 
-#positionEye1, #positionEye2{
+#positionEye1, #positionEye2,#positionEye3{
     position: relative;
 }
 

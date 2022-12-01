@@ -34,10 +34,11 @@
         else {
             x.type = "password";
         }
+        console.log(x);
     });
 
     $("#visibility3").click(function () {
-        var x = document.getElementById("password");
+        var x = document.getElementById("password3");
         if (x.type === "password") {
             x.type = "text";
         }
@@ -45,8 +46,6 @@
             x.type = "password";
         }
         console.log(x);
-
-
     });
 
 

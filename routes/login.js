@@ -12,10 +12,10 @@ router.get('', async (req, res) => {
 router.post('', async (req, res) => {
     
     let username = req.body.username;
-    let password = req.body.password;
+    let password = req.body.password3;
     let result;
     try {
-      password = validation.checkPassWord(req.body.password);
+      password = validation.checkPassWord(req.body.password3);
       username = validation.checkUserName(req.body.username);
       result = await user.checkUser(username, password);
     }
