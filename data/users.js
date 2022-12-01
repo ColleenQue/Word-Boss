@@ -72,6 +72,26 @@ let exportedMethod=
             throw 'Error: user doesnt exist?';
         }
         console.log(user);
+        let level = "";
+        if (correct < 10){
+            level = "Level 0";
+        }
+        else if (correct > 10 && correct < 20){
+            level = "Level 1";
+        }
+        else if (correct >= 20 && correct < 30){
+            level = "Level 2";
+        }
+        else if (correct >= 30 && correct < 40){
+            level = "Level 3";
+        }
+        else if (correct >= 40 && correct < 50){
+            console.log(correct)
+            level = "Level 4";
+        }
+        else if (correct > 50){
+            level = "Level 5";
+        }
 
         if (user == null) throw "Error: username doesn't taken";
         // for some reason the console logs output the same thing 
@@ -79,7 +99,8 @@ let exportedMethod=
             username: username,
             password: password,
             email: email,
-            correct: correct
+            correct: correct,
+            level: level
         }
         
         const updatedInfo=await userCollections.updateOne({_id: user._id}, {$set: updatedUser});
