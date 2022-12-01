@@ -1,27 +1,21 @@
-const Collections = require('../config/mongoCollections');
-const userCollection= Collections.users;
+const mongoCollections = require('../config/mongoCollections');
+const userCollection= mongoCollections.users;
 const {ObjectId} = require('mongodb');
-const uses_js = require('./movies');
+const user = require('./users');
 
 // sort children by leaderboard
-const sortChildren = async (
-) => {
-    let childList = user_js.getAllChildren();
+module.exports ={
+async sortChildren (){
+    const childCollection = await userCollection();
     // gets all the user correct scores
-    let compareCorrect= (a,b) => {
-        return a.correct - b.correct
-    };
+ 
+    const childList = await childCollection.find().sort({correct:-1}).toArray();
 
-    childList.sort(compareCorrect);
-
+    console.log(childList);
     let result = [];
-    for(let i = 0; i < 5; i++){
+    for(let i = 0; i < 3; i++){
         result.push(childList[i]);
     }
-    console.log(result);
     return result;
 }
-
-module.exports = {
-    sortChildren
-};
+}

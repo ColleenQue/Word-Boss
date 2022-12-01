@@ -414,3 +414,15 @@ img {
 .paymentsubmission:hover{
     border-color: rgba(255,255,255,1);
 }
+
+.leaderTable{
+    display: inline-block;
+  text-align: center;
+  font-size: 30px;
+  
+}
+
+.leaderContainer{
+    text-align:center;
+    padding: 100px 0;
+}
