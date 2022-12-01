@@ -49,6 +49,25 @@ async function testLWords(){
 
 testLWords();
 
+// Jae Jang
+async function testUpdateUsers(){
+    try{
+        let username = "JaeJang"
+        let password = "monkeybusiness2002"
+        let email = "jaesus02@gmail.com"
+        await users.createUser(username,password,email,false);
+        let correct = 1;
+        const result = await users.updateUser(username, password, email, correct);
+
+        console.log(result);
+        
+    }catch(e){
+        console.log(e);
+    }
+}
+
+testUpdateUsers();
+
 //colleen
 
 async function testSortChildren(){
