@@ -178,11 +178,19 @@ const createPayment = async(username, cname, cardnumber, cvc, cardnumberExp) => 
         return { paymentInserted: true };
     }
 }
-// const getParent = async (username) =>{
+const CheckParentHasPaymentfromChild = async (username) =>{
+    
+    const userCollection=await users();
+    const user=await userCollection.findOne({username: username.toLowerCase()});
+    const paymentuser=await paymentCollections.findOne({username: username});
+    if(paymentuser !=null){
+        return { paymentParent: true };
+    }
 
 
-// }
-//
+
+}
+
 
 module.exports ={
     checkStringHasNumbers,
@@ -192,4 +200,5 @@ module.exports ={
     validateCreditCardExpirationDate,
     validateCreditCardPostalCode,
     createPayment,
+    CheckParentHasPaymentfromChild,
 }

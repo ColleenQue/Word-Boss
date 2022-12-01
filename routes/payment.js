@@ -19,7 +19,9 @@ router.get('', async (req, res) => {
     }
     else {
       // console.log('Hello2');
-      return res.render('pages/profile', {login:true,title:"profile", username: getUser.username, email: getUser.email,wordsLearned: allWordsL.word});
+      res.redirect('profile');
+      return;
+      //return res.render('pages/profile', {login:true,title:"profile", username: getUser.username, email: getUser.email,wordsLearned: allWordsL.word});
     }
   }
   //check if there is a user logined in if not go to login
