@@ -20,5 +20,6 @@ module.exports = {
   myWords: getCollectionFn('myWords'),
   users: getCollectionFn('users'),
   fillWords: getCollectionFn('fillWords'),
-  learnedWords: getCollectionFn('learnedWords')
+  learnedWords: getCollectionFn('learnedWords'),
+  payment: getCollectionFn('payment'),
 };

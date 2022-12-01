@@ -1,16 +1,31 @@
+const mongoCollections=require("../config/mongoCollections");
+const users=mongoCollections.users;
 const payment = require('../data/payment');
 const express = require('express');
 const router = express.Router();
 const validation=require('../validation');
-
-
+const user=require('../data/users');
+const lWords=require('../data/learnedWords');
 router.get('', async (req, res) => {
+
   if (req.session.user){
-    return res.render('pages/payment', {login:true,title:"payment"});
-    
+    const getUser=await user.findUser(req.session.user);
+    // console.log('Hello');
+    // console.log(getUser);
+    const allWordsL=await lWords.getAllWords(req.session.user);
+    if(typeof(getUser.children)!="undefined"){
+      // console.log('Hello1');
+      return res.render('pages/payment', {login:true,title:"payment", username: getUser.username, email: getUser.email,wordsLearned: allWordsL.word});
+    }
+    else {
+      // console.log('Hello2');
+      res.redirect('profile');
+      return;
+      //return res.render('pages/profile', {login:true,title:"profile", username: getUser.username, email: getUser.email,wordsLearned: allWordsL.word});
+    }
   }
   //check if there is a user logined in if not go to login
-  else {
+  else {  
     return res.render('pages/login', {title: "Login"});
   }
 });
@@ -21,6 +36,10 @@ router.post('/', async (req, res) => {
   let cardnumber = req.body.cnumInput;
   let cvc=req.body.cardnumberCVC;
   let cardnumberExp=req.body.cardnumberExp;
+  // console.log(cname);
+  // console.log(typeof cardnumber);
+  // console.log(typeof cardnumberCVC);
+  // console.log(typeof cardnumberExp)
   try {
     cname= validation.checkCname(req.body.cnameInput);
     cardnumber = payment.validateCreditCard(req.body.cnumInput);
@@ -35,8 +54,29 @@ router.post('/', async (req, res) => {
   //Credit card is valid
   //IF credit card is valid the answer is shown
   
-  res.redirect('/profile');
+  try{
+    let payment1=payment.createPayment(req.session.user, cname,cardnumber,cvc, cardnumberExp);
+    if ((await payment1).paymentInserted == true) {
+      res.redirect('profile');
+      return;
+    }
+    else {
+      res
+        .status(500)
+        .render("userRegister", {
+          error: "Internal Server Error",
+          title: "Register",
+        });
+      // res.status(500).json({error: "Internal Server Error"});
+      return;
+    }
 
+  } catch(e){
+    res.status(400).render('pages/payment', { err: true, message: e , login: true,title:"Payment"});
+    return;
+
+  }
+  return;
 
   // if (result.authenticated === true) {
   //   //res.render('pages/home', {login:true});

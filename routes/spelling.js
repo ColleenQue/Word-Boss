@@ -49,7 +49,7 @@ router.post('', async (req, res) => {
         if(correct){
           //update progress
           lWords.addWord(req.session.user,answer);
-          progress.updateProgress(username,20);
+          //progress.updateProgress(username,20);
         }
         else{
           //incorrect
