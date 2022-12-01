@@ -1,5 +1,3 @@
-
-
 <main>
   <div class="overflow-hidden p-3 p-md-5 m-md-3 text-center ">
     <div class="container">
@@ -9,17 +7,17 @@
         <div class="col" id="score">Score: 0/10</div>
       </div> --}}
       <div class="row">
-          <h3>Pick the word that best fits the following definition:</h3>
+        <h3>Pick the word that best fits the following definition:</h3>
       </div>
       <h4>{{definition}}</h4>
       <form action="/quiz" method="POST">
         <p>
-          <input type="radio" name="choice" id= "choice1" value ={{choice1}}>
-          <label for ="choice1">{{choice1}}</label>
+          <input type="radio" name="choice" id="choice1" value={{choice1}}>
+          <label for="choice1">{{choice1}}</label>
         </p>
 
         <p>
-          <input type="radio" name="choice" id= "choice2" value={{choice2}}>
+          <input type="radio" name="choice" id="choice2" value={{choice2}}>
           <label for="choice2">{{choice2}}</label>
         </p>
 
@@ -33,8 +31,11 @@
         </p>
 
         <p><input type="submit"></input></p>
-        
+
       </form>
+      <a class="nav-link" href="/leader">Click here to see quiz leaderboard</a>
+      <a class="nav-link" href="/quiz">Click here to refresh</a>
+      <a class="nav-link" href="/profile">Click profile to check your correct score</a>
     </div>
-   </div>
+  </div>
 </main>

@@ -307,6 +307,15 @@ img {
     margin-top: 2.5%;
 }
 
+.pText{
+    display:inline;
+}
+
+.pAs{
+    color:red;
+    display:inline;
+}
+
 #positionEye1, #positionEye2,#positionEye3{
     position: relative;
 }
@@ -430,4 +439,21 @@ img {
 .leaderContainer{
     text-align:center;
     padding: 100px 0;
+}
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.err {
+    color: red
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
 }

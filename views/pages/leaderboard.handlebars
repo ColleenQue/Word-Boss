@@ -1,12 +1,14 @@
 <div class = "leaderContainer">
 {{#if leaders.length}}
     <table class="leaderTable">
-        <th><h1>Leader Board</h1></th>
+        <th><h1>Quiz Leader Board</h1></th>
+        <h3>Top {{leaders.length}} Leaders</h3>
         {{#each leaders}}
         <tr>
-            <td>{{username}}:{{correct}}</td>
+            <td>{{username}}: {{correct}} correct answers</td>
         </tr>
         {{/each}}
     </table>
 {{/if}}
+<a class="nav-link" href="/quiz">Click here to do more quizes!</a>
 </div>

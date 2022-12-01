@@ -3,12 +3,12 @@
     
         <div class="student-profile py-4">
             <div class="container">
-              <div class="row">
+              <div class="row justify-content-center">
                 <div class="col-lg-4">
                   <div class="card shadow-sm">
                     <div class="card-header bg-transparent text-center">
                       <img class="profile_img" src="https://www.ddvelderlaw.com/wp-content/uploads/2019/07/storyblocks-brain-training-with-dumbbells-and-glasses-vector_rA-6CycLz_thumb.jpg" alt="student dp">
-                      <h3>{{username}}</h3>
+                      <h3>{{username}} | {{level}}</h3>
                       {{#if isParent}}
         <a href="/payment" class="btn btn-primary">Go to Payment</a>
       
@@ -47,6 +47,17 @@
                         </table>
                         {{/each}}
                       </div>
+                      <div class="card-body pt-0">
+                        <p>Child Correct Score</p>
+                         {{#each child}}
+                        <table class="table table-bordered">
+                            <tr>
+                            <th width="30%">{{this.username}}</th>
+                            <td>{{this.correct}}</td>
+                            </tr>
+                        </table>
+                        {{/each}}
+                      </div>
                       {{/if}}
                     </div>
                     <div class="card-body pt-0">
@@ -60,6 +71,13 @@
                         {{/each}}
                         {{/if}}
                       </table>
+                    </div>
+                    <div class="card-body pt-0">
+                        <table class="table table-bordered">
+                          <th>Your Correct Score</th>
+                          <td>{{correct}}</td>
+                        </table>
+                      </div>
                     </div>
                 </div>
             </div>

@@ -6,14 +6,16 @@ const user=require('../data/users');
 
 router.get('',async(req,res)=>{
     console.log(req.session.user);
-    const getUser=await user.findUser(req.session.user);
+    let getUser=await user.findUser(req.session.user);
+    const updated = await user.updateUser(getUser.username, getUser.password, getUser.email, getUser.correct);
+    getUser=await user.findUser(req.session.user);
     const allWordsL=await lWords.getAllWords(req.session.user);
     if(typeof(getUser.children)==="undefined"){
         //return res.json({username: getUser.username, email: getUser.email});
         if(allWordsL==null){
-            return res.render('pages/profile', {username: getUser.username, email: getUser.email,isParent:false,learned:false,login:true,title:"profile"});
+            return res.render('pages/profile', {username: getUser.username, email: getUser.email,isParent:false,learned:false,login:true,correct: getUser.correct,title:"profile", level: getUser.level});
         }else{
-            return res.render('pages/profile', {username: getUser.username, email: getUser.email,isParent:false,learned:true,wordsLearned: allWordsL.word,login:true,title:"profile"});
+            return res.render('pages/profile', {username: getUser.username, email: getUser.email,isParent:false,learned:true,wordsLearned: allWordsL.word,login:true,correct: getUser.correct,title:"profile", level: getUser.level});
         }
     }
     else{
@@ -30,9 +32,9 @@ router.get('',async(req,res)=>{
         }
         console.log(childLearned);
         if(allWordsL==null){
-            return res.render('pages/profile', {username: getUser.username, email: getUser.email, child: getUser.children,isParent:true,learned:false,childLearn: childLearned,login:true,title:"profile"});
+            return res.render('pages/profile', {username: getUser.username, email: getUser.email, child: getUser.children,isParent:true,learned:false,childLearn: childLearned,login:true,correct: getUser.correct,title:"profile"});
         }else{
-            return res.render('pages/profile', {username: getUser.username, email: getUser.email, child: getUser.children,isParent:true,learned:true,wordsLearned: allWordsL.word,login:true,childLearn: childLearned,title:"profile"});
+            return res.render('pages/profile', {username: getUser.username, email: getUser.email, child: getUser.children,isParent:true,learned:true,wordsLearned: allWordsL.word,login:true,childLearn: childLearned,correct: getUser.correct,title:"profile"});
         }
     }
 })

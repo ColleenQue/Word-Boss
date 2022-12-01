@@ -6,7 +6,7 @@
           <div class="row justify-content-center">
             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-              <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login In</p>
+              <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
 
               <form method="POST" action="login" id="login-form" class="mx-1 mx-md-4">
 
@@ -14,9 +14,10 @@
                   <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                   <div class="form-outline flex-fill mb-0">
                     <input type="text" name="username" class="form-control" placeholder="Username"
-                      value="{{username}}" />
+                      value="{{username}}" required/>
                     <!-- <label class="form-label" for="form3Example1c">Your Name</label> -->
                   </div>
+                  <div class="required"></div>
                 </div>
 
                 <div class="d-flex flex-row align-items-center mb-4">
@@ -26,9 +27,10 @@
                       <span id="visibility3"><i class="fas fa-eye fa-lg me-3 fa-fw"></i></span>
                     </div>
                     <input type="password" id="password3" name="password3" class="form-control" placeholder="Password"
-                      value="{{password3}}" />
+                      value="{{password3}}" required/>
                     <!-- <label class="form-label" for="form3Example4c">Password</label> -->
                   </div>
+                  <div class="required"></div>
                 </div>
                 
                 <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
@@ -49,6 +51,10 @@
   </div>
 
 </div>
+
+<style>
+    .required:after { content:" *"; color: red;}
+</style>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>

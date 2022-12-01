@@ -3,6 +3,7 @@ const fillblank=require("./data/fillblank");
 const paymentData=require("./data/payment");
 const validation = require("./validation");
 const lWords=require('./data/learnedWords');
+const leader= require('./data/leaderboard');
 const users=require('./data/users');
 const dbConnection=require('./config/mongoConnection');
 
@@ -48,3 +49,34 @@ async function testLWords(){
 
 testLWords();
 
+// Jae Jang
+async function testUpdateUsers(){
+    try{
+        let username = "JaeJang"
+        let password = "monkeybusiness2002"
+        let email = "jaesus02@gmail.com"
+        await users.createUser(username,password,email,false);
+        let correct = 1;
+        const result = await users.updateUser(username, password, email, correct);
+
+        console.log(result);
+        
+    }catch(e){
+        console.log(e);
+    }
+}
+
+testUpdateUsers();
+
+//colleen
+
+async function testSortChildren(){
+    try{
+        let childrenList = await leader.sortChildren();
+        console.log(childrenList);
+    }catch(e){
+        console.log(e);
+    }
+}
+
+testSortChildren();
