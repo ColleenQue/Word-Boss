@@ -1,4 +1,9 @@
 const validate = require("../validation");
+const mongoCollections=require("../config/mongoCollections");
+const users=mongoCollections.users;
+const paymentC = mongoCollections.payment;
+const validation=require("../validation");
+
 function checkStringHasSpecialChar(str){
     let specialChar= /[`@#$%^&*()_+\-=\[\]{}"\\|<>\/~]/;
     if(specialChar.test(str)){
@@ -35,6 +40,9 @@ function checkStringHasNumbers(str){
 function validateCreditCard(str){
     if (str == undefined){
         throw 'Must provide valid redit card';
+    }
+    if (typeof str != 'string'){
+        throw 'Incorrect type'
     }
     if (checkStringHasNumbers(str) != true){
         throw 'Credit card numbers must be provided.';
@@ -119,6 +127,21 @@ function validateCreditCardPostalCode(str){
     return true;
 }
 
+const CreatePayment = async(cname, cardnumber, cvc, cardnumberExp) => {
+    cname=validate.checkCname(cname);
+    validateCreditCard(cardnumber);
+    validateCreditCardCVC(cvc);
+    validateCreditCardExpirationDate(cardnumberExp);
+    const userCollections=await users();
+    const paymentC= await paymentC();
+    const findUser=await userCollections.findOne({username: username});
+    if(findUser == null){
+        throw "Error: User is not registered"
+    }
+    
+
+}
+
 module.exports ={
     checkStringHasNumbers,
     validateCreditCard,
@@ -126,6 +149,7 @@ module.exports ={
     validateDate,
     validateCreditCardExpirationDate,
     validateCreditCardPostalCode,
+    CreatePayment,
 
 
 }
