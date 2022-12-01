@@ -25,9 +25,18 @@ router.post('',async(req,res)=>{
     let paymentMethod= await payment.CheckParentHasPaymentfromChild(req.session.user);
     theWord=theWord.word;
     try{
-        if (paymentMethod.paymentParent==true){
-            res.render('pages/fillblank',{title: "Fill in the Blank",validPayment:true, partOne:theWord.firstHalf,partTwo:theWord.secondHalf, smallhint: theWord.word[0],login:true});
 
+        validPayment= await (paymentMethod).paymentParent;
+        console.log(validPayment)
+        console.log("Child has parent");
+        if (validPayment){
+            console.log("Child has valid payment");
+            res.render('pages/fillblank',{title: "Fill in the Blank",validPayment:true, partOne:theWord.firstHalf,partTwo:theWord.secondHalf, smallhint: theWord.word[0] +theWord.word[1]+theWord.word[2],login:true});
+
+        }
+        else{
+            console.log("Child has INvalid payment");
+            res.render('pages/fillblank',{title: "Fill in the Blank", validPayment:false, partOne:theWord.firstHalf,partTwo:theWord.secondHalf, login:true});
         }
         // if(theWord.word==word){
         //     lWords.addWord(req.session.user,word);

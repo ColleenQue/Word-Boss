@@ -188,9 +188,12 @@ const CheckParentHasPaymentfromChild = async (username) =>{
     const userCollection=await users();
     const user=await userCollection.findOne({username: username.toLowerCase()});
     const paymentCollections= await paymentC();
-    const paymentuser=await paymentCollections.findOne({username: username});
+    const paymentuser=await paymentCollections.findOne({username: username.toLowerCase()});
     if(paymentuser !=null){
         return { paymentParent: true };
+    }
+    else {
+        return {paymentParent: false};
     }
 
 
