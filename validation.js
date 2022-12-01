@@ -38,20 +38,20 @@ module.exports={
       checkCname(cname){
         if (!cname) throw "must provide cname"
         if (typeof cname !== "string")
-            throw "Error: password should be a string";
+            throw "Error: Cname should be a string";
         cname = cname.trim();
  
-        cname=cname.split(" ");
-        if (cname.length < 2){
+        cnamesplit=cname.split(" ");
+        if (cnamesplit.length < 2){
             throw 'Name invalid';
         }
-        if (cname.length > 2){
+        if (cnamesplit.length > 2){
             throw 'Not valid input';
         }
-        if (cname[0].trim().length < 2){
+        if (cnamesplit[0].trim().length < 2){
             throw 'First name has to be at least 2 characters';
         }
-        if (cname[1].trim().length < 2){   
+        if (cnamesplit[1].trim().length < 2){   
             throw 'Last name has to be at least 2 characters';
         }
         return cname;
