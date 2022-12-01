@@ -3,6 +3,7 @@ const fillblank=require("./data/fillblank");
 const paymentData=require("./data/payment");
 const validation = require("./validation");
 const lWords=require('./data/learnedWords');
+const leader= require('./data/leaderboard');
 const users=require('./data/users');
 const dbConnection=require('./config/mongoConnection');
 
@@ -48,3 +49,15 @@ async function testLWords(){
 
 testLWords();
 
+//colleen
+
+async function testSortChildren(){
+    try{
+        let childrenList = await leader.sortChildren();
+        console.log(childrenList);
+    }catch(e){
+        console.log(e);
+    }
+}
+
+testSortChildren();
