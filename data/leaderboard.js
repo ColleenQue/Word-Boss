@@ -13,7 +13,7 @@ async sortChildren (){
 
     console.log(childList);
     let result = [];
-    for(let i = 0; i < 3; i++){
+    for(let i = 0; i < 5; i++){
         if (childList[i]){
             result.push(childList[i]);
         }
