@@ -22,4 +22,5 @@ module.exports = {
   fillWords: getCollectionFn('fillWords'),
   learnedWords: getCollectionFn('learnedWords'),
   payment: getCollectionFn('payment'),
+  pay: getCollectionFn('pay'),
 };
