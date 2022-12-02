@@ -60,11 +60,9 @@ let exportedMethod=
         
     },
 
-    async updateUser(username,password,email, correct){
+    async updateUser(username, correct){
         username=validation.checkUserName(username);
-        password=validation.checkPassWord(password);
-        checkEmail=emailValidator.validate(email);
-        if (checkEmail.valid===false) throw "Error: Email is not valid"
+
         const userCollections=await users();
 
         const user = await userCollections.findOne({username: username});
@@ -94,14 +92,13 @@ let exportedMethod=
         }
 
         
-        const hash=await bcrypt.hash(password,saltRounds);
 
         if (user == null) throw "Error: username doesn't taken";
         // for some reason the console logs output the same thing 
         let updatedUser={
             username: username,
-            password: hash,
-            email: email,
+            password: user.password,
+            email: user.email,
             correct: correct,
             level: level
         }
