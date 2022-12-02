@@ -160,20 +160,27 @@ const createPayment = async(username, cname, cardnumber, cvc, cardnumberExp) => 
     const findUser2=await paymentCollections.findOne({username: username});
     const cvcHashed=await bcrypt.hash(cvc,saltRounds);
     const cardnumberHashed=await bcrypt.hash(cardnumber,saltRounds);
+    let children= user.children;
     // console.log(findUser2);
-    if(findUser2 !=null){
+    if (findUser2 !=null){
         console.log("founduser update Payment");
-            const updateinfo= await paymentCollections.updateOne({"username": username.toLowerCase()},{$set: {"cname": cnameV, "cardnumber": cardnumberHashed, "cvc": cvcHashed, "cardnumberExp": cardnumberExp} });
+        
+            const updateinfo= await paymentCollections.updateOne({"username": username.toLowerCase()},{$set: {"cname": cnameV, "cardnumber": cardnumberHashed, "cvc": cvcHashed, "cardnumberExp": cardnumberExp, "children": children} });
             return { paymentInserted: true };
     }
     else{
         // console.log("did not find user create Payment");
+        //find children
+
+
         let CreatePayment = {
             username: username,
             cname: cnameV,
             cardnumber: cardnumberHashed,
             cvc: cvcHashed,
-            cardnumberExp: cardnumberExp
+            cardnumberExp: cardnumberExp,
+            //list
+            children: children
         }
         const insertInfo=await paymentCollections.insertOne(CreatePayment);
         if (!insertInfo.acknowledged || !insertInfo.insertedId){
@@ -183,22 +190,50 @@ const createPayment = async(username, cname, cardnumber, cvc, cardnumberExp) => 
         return { paymentInserted: true };
     }
 }
+//GetChildren
 const CheckParentHasPaymentfromChild = async (username) =>{
-    
-    const userCollection=await users();
-    const user=await userCollection.findOne({username: username.toLowerCase()});
-    const paymentCollections= await paymentC();
-    const paymentuser=await paymentCollections.findOne({username: username.toLowerCase()});
-    if(paymentuser !=null){
-        return { paymentParent: true };
+    //users
+    const paymentCollection= await paymentC();
+    const payments= await paymentCollection.find().toArray();
+    console.log(payments);
+    for(obj of payments){
+        for (child of obj.children){
+            if (child.username==username){
+                console.log("trueeeeee");
+                return { paymentParent: true };
+        }
+        else {
+            console.log("falseeeee")
+            return {paymentParent: false};
+        }
     }
-    else {
-        return {paymentParent: false};
+
+        }
+
+        // console.log(elem);
+        // if (obj.children.username ==username){
+        //     console.log("trueeeeee")
+        //     return { paymentParent: true };
+        // }
+        // else {
+        //     console.log("falseeeee")
+        //     return {paymentParent: false};
+        // }
     }
 
+    // const userCollection=await users();
+    // const user=await userCollection.findOne({username: username.toLowerCase()});
+    // const paymentuser=await paymentCollections.findOne({username: username.toLowerCase()});
+    // if(paymentuser !=null){
+    //     return { paymentParent: true };
+    // }
+    // else {
+    //     return {paymentParent: false};
+    // }
 
 
-}
+
+
 
 
 module.exports ={
