@@ -63,6 +63,7 @@ router.post('/', async (req, res) => {
   try{
     let payment1=payment.createPayment(req.session.user, cname,cardnumber,cvc, cardnumberExp);
     if ((await payment1).paymentInserted == true) {
+      //Profile res.rendor
       res.redirect('profile');
       return;
     }

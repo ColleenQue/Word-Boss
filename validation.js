@@ -43,7 +43,7 @@ module.exports={
  
         cnamesplit=cname.split(" ");
         if (cnamesplit.length < 2){
-            throw 'Name invalid';
+            throw 'Name has to be First and last Ex: Bob Kevin';
         }
         if (cnamesplit.length > 2){
             throw 'Not valid input';
