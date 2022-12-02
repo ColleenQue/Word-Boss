@@ -61,4 +61,4 @@ Take a multiple choice quiz. Parents and Children are able to take a multiple ch
 See who has answered the most amount of questions correctly. Child users will be compared to other child users. This score is taken from the Multiple Choice Quiz.
 
 ## Profile Feature
-User opens a page where it displays all of the user's information. Within the website, parents are able to see their child's progess and see ho much they have improved. Parents can also see what words they have learned for the day.
+User opens a page where it displays all of the user's information. Within the website, parents are able to see their child's progess and see ho much they have improved. Parents can also see what words they have learned for the day. The parent is able to make a payment on the profile page. 
