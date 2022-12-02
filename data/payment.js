@@ -203,6 +203,10 @@ const CheckParentHasPaymentfromChild = async (username) =>{
         return {paymentParent: false};
     }
     for(obj of payments){
+        // console.log(obj);
+        if(obj.username==username){
+            return { paymentParent: true };
+        }
         for (child of obj.children){
             if (child.username==username){
                 console.log("trueeeeee");
