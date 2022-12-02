@@ -37,7 +37,7 @@ router.post('/', async (req, res) => {
         let counter = getUser.correct + 1;
         lWords.addWord(req.session.user,search);
         if(getUser.hasOwnProperty('correct')){
-            const updated = await user.updateUser(getUser.username, getUser.password, getUser.email, counter);
+            const updated = await user.updateUser(getUser.username, counter);
             //console.log(updated);
         }
         return res.render('pages/correct',{login:true});

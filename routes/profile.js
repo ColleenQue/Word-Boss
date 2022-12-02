@@ -7,7 +7,7 @@ const user=require('../data/users');
 router.get('',async(req,res)=>{
     console.log(req.session.user);
     let getUser=await user.findUser(req.session.user);
-    const updated = await user.updateUser(getUser.username, getUser.password, getUser.email, getUser.correct);
+    const updated = await user.updateUser(getUser.username,getUser.correct);
     getUser=await user.findUser(req.session.user);
     const allWordsL=await lWords.getAllWords(req.session.user);
     if(typeof(getUser.children)==="undefined"){

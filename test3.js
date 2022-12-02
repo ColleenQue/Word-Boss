@@ -57,7 +57,7 @@ async function testUpdateUsers(){
         let email = "jaesus02@gmail.com"
         await users.createUser(username,password,email,false);
         let correct = 1;
-        const result = await users.updateUser(username, password, email, correct);
+        const result = await users.updateUser(username, correct);
 
         console.log(result);
         

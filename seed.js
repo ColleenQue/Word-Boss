@@ -39,10 +39,10 @@ const main = async () => {
       try {
         //create children
         //to display leaderboard
-        user1 = await users.updateUser("gobble","password","email@gmail.com",3);
-        user2 = await users.updateUser("christmas","password","email@gmail.com",10);
-        user3 = await users.updateUser("agile","password","email@gmail.com",11);
-        user4 = await users.updateUser("easter","password","email@gmail.com",100);
+        user1 = await users.updateUser("gobble",3);
+        user2 = await users.updateUser("christmas",10);
+        user3 = await users.updateUser("agile",11);
+        user4 = await users.updateUser("easter",100);
 
       } catch (e) {
         console.log(e);
