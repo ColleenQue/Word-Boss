@@ -196,6 +196,12 @@ const CheckParentHasPaymentfromChild = async (username) =>{
     const paymentCollection= await paymentC();
     const payments= await paymentCollection.find().toArray();
     console.log(payments);
+    if (!payments){
+        return {paymentParent: false};
+    }
+    if (payments.length == 0){
+        return {paymentParent: false};
+    }
     for(obj of payments){
         for (child of obj.children){
             if (child.username==username){
