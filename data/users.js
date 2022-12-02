@@ -93,11 +93,14 @@ let exportedMethod=
             level = "Level 5";
         }
 
+        
+        const hash=await bcrypt.hash(password,saltRounds);
+
         if (user == null) throw "Error: username doesn't taken";
         // for some reason the console logs output the same thing 
         let updatedUser={
             username: username,
-            password: password,
+            password: hash,
             email: email,
             correct: correct,
             level: level
